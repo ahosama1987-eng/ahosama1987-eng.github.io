@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tax Calculator | Pro Calculator Hub</title>
+  <meta name="description" content="Free tax calculator: estimate total after applying a tax percentage to an amount.">
+
+  <link rel="canonical" href="https://ahosama1987-eng.github.io/tax.html">
+  <link rel="alternate" hreflang="en" href="https://ahosama1987-eng.github.io/tax.html">
+  <link rel="alternate" hreflang="ar" href="https://ahosama1987-eng.github.io/ar/tax.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tax Calculator | Pro Calculator Hub">
+  <meta property="og:description" content="Estimate total after applying a tax rate.">
+  <meta property="og:url" content="https://ahosama1987-eng.github.io/tax.html">
+
+  <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Tax Calculator",
+    "url": "https://ahosama1987-eng.github.io/tax.html",
+    "inLanguage": "en",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Pro Calculator Hub",
+      "url": "https://ahosama1987-eng.github.io/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar" aria-label="Tools navigation">
+      <h2>Tools</h2>
+      <div class="nav">
+        <a href="index.html">🏠 Home</a>
+        <a href="loan.html">💰 Loan</a>
+        <a href="profit.html">📈 Profit</a>
+        <a href="roi.html">🎯 ROI</a>
+        <a href="bmi.html">⚖️ BMI</a>
+        <a href="age.html">🎂 Age</a>
+        <a href="tax.html">🧾 Tax</a>
+      </div>
+    </nav>
+
+    <div class="main">
+      <header class="topbar">
+        <div class="topbar-inner">
+          <div class="brand">
+            <h1>Tax Calculator</h1>
+            <p>Estimate total after applying a tax rate</p>
+          </div>
+          <div class="controls">
+            <a class="btn" href="ar/tax.html" hreflang="ar" lang="ar" aria-label="Switch to Arabic">العربية</a>
+            <button class="btn" id="themeToggle" type="button">Theme: Auto</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <section class="card">
+          <h2>Calculate tax</h2>
+          <p>Enter the amount and tax percentage.</p>
+
+          <form id="taxForm">
+            <label for="amount">Amount</label>
+            <input id="amount" type="number" inputmode="decimal" step="0.01" placeholder="e.g., 100" required>
+
+            <label for="taxRate">Tax rate (%)</label>
+            <input id="taxRate" type="number" inputmode="decimal" step="0.01" placeholder="e.g., 14" required>
+
+            <button class="btn primary" type="submit">Calculate</button>
+          </form>
+
+          <div class="result" id="taxResult" aria-live="polite"></div>
+        </section>
+      </main>
+
+      <footer>
+        <a href="index.html">Back to home</a>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>
