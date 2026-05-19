@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahosama1987-eng.github.io/sitemap.xml
