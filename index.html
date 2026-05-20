@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- ===== PRIMARY SEO ===== -->
+  <title>Free Online Calculators – Loan, BMI, ROI, Profit, Tax, Age | Pro Calculator Hub</title>
+  <meta name="description" content="Free online calculators for loan payments, BMI, ROI, profit margin, tax, and age. Fast, accurate, and mobile-friendly tools trusted by thousands of users daily." />
+  <meta name="keywords" content="loan calculator, BMI calculator, ROI calculator, profit calculator, tax calculator, age calculator, free online calculators, financial calculators" />
+  <meta name="author" content="Pro Calculator Hub" />
+  <link rel="canonical" href="https://ahosama1987-eng.github.io/" />
+
+  <!-- ===== OPEN GRAPH ===== -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="https://ahosama1987-eng.github.io/" />
+  <meta property="og:title"       content="Free Online Calculators – Loan, BMI, ROI, Profit, Tax, Age" />
+  <meta property="og:description" content="Fast, accurate, mobile-friendly calculators for everyday decisions. No sign-up needed." />
+  <meta property="og:image"       content="https://ahosama1987-eng.github.io/og-image.png" />
+
+  <!-- ===== TWITTER CARD ===== -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Free Online Calculators – Pro Calculator Hub" />
+  <meta name="twitter:description" content="Instant results for loan, BMI, ROI, profit, and more." />
+  <meta name="twitter:image"       content="https://ahosama1987-eng.github.io/og-image.png" />
+
+  <!-- ===== STRUCTURED DATA ===== -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Pro Calculator Hub","url":"https://ahosama1987-eng.github.io/","description":"Free online calculators for loan, BMI, ROI, profit, tax, and age."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Free Online Calculators","itemListElement":[{"@type":"ListItem","position":1,"name":"Loan Calculator","url":"https://ahosama1987-eng.github.io/#loan"},{"@type":"ListItem","position":2,"name":"Profit Calculator","url":"https://ahosama1987-eng.github.io/#profit"},{"@type":"ListItem","position":3,"name":"ROI Calculator","url":"https://ahosama1987-eng.github.io/#roi"},{"@type":"ListItem","position":4,"name":"BMI Calculator","url":"https://ahosama1987-eng.github.io/#bmi"},{"@type":"ListItem","position":5,"name":"Age Calculator","url":"https://ahosama1987-eng.github.io/#age"},{"@type":"ListItem","position":6,"name":"Tax Calculator","url":"https://ahosama1987-eng.github.io/#tax"}]}</script>
+
+  <!-- ===== GOOGLE ADSENSE — Replace ca-pub-XXXXXXXXXXXXXXXX with your real Publisher ID ===== -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+
+  <!-- ===== FONTS ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #0d1117;
+      --surface: #161b22;
+      --card:    #1c2230;
+      --border:  #30363d;
+      --accent:  #2ea043;
+      --blue:    #58a6ff;
+      --text:    #e6edf3;
+      --muted:   #8b949e;
+      --danger:  #f85149;
+      --r:       12px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+
+    /* NAV */
+    header { position: sticky; top: 0; z-index: 100; background: rgba(13,17,23,.94); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: .85rem 1.5rem; gap: 1rem; }
+    .logo { font-family:'Syne',sans-serif; font-size: 1.2rem; font-weight: 800; color: var(--blue); text-decoration: none; white-space: nowrap; }
+    .logo span { color: var(--accent); }
+    nav { display: flex; gap: .2rem; flex-wrap: wrap; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .82rem; font-weight: 500; padding: .38rem .65rem; border-radius: 6px; transition: all .2s; }
+    nav a:hover, nav a.active { color: var(--text); background: var(--card); }
+    .hbg { display: none; background: none; border: 1px solid var(--border); cursor: pointer; color: var(--text); font-size: 1rem; padding: .3rem .7rem; border-radius: 6px; }
+
+    /* HERO */
+    .hero { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem 2rem; text-align: center; }
+    .hero h1 { font-family:'Syne',sans-serif; font-size: clamp(2rem,5vw,3.5rem); font-weight: 800; line-height: 1.15; background: linear-gradient(135deg,var(--blue),var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 1rem; }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 560px; margin: 0 auto 2rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center; }
+    .chip { background: var(--card); border: 1px solid var(--border); color: var(--text); text-decoration: none; padding: .45rem 1.1rem; border-radius: 999px; font-size: .85rem; font-weight: 500; transition: all .2s; }
+    .chip:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* ADS */
+    .ad-wrap { max-width: 1100px; margin: 1.2rem auto; padding: 0 1.5rem; }
+    .ad-label { font-size: .67rem; color: var(--muted); text-align: center; margin-bottom: .3rem; text-transform: uppercase; letter-spacing: 1px; }
+    .ad-box { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--r); min-height: 90px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .ad-side { background: var(--surface); border: 1px dashed var(--border); border-radius: var(--r); min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; }
+
+    /* LAYOUT */
+    hr { border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto; }
+    .sec { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+    .sec-title { font-family:'Syne',sans-serif; font-size: 1.45rem; font-weight: 700; margin-bottom: .4rem; }
+    .sec-desc { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; }
+    .two-col { display: grid; grid-template-columns: 1fr 300px; gap: 1.75rem; align-items: start; }
+
+    /* CARD */
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--r); padding: 1.75rem; box-shadow: 0 4px 24px rgba(0,0,0,.4); }
+    .fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .field { display: flex; flex-direction: column; gap: .4rem; }
+    .field label { font-size: .78rem; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .field input, .field select { background: var(--surface); border: 1px solid var(--border); color: var(--text); border-radius: 8px; padding: .65rem .9rem; font-size: .95rem; font-family:'DM Sans',sans-serif; transition: border-color .2s; width: 100%; }
+    .field input:focus, .field select:focus { outline: none; border-color: var(--blue); }
+    .field input[type="date"] { color-scheme: dark; }
+    .s2 { grid-column: 1 / -1; }
+    .btn { background: var(--accent); color: #fff; border: none; border-radius: 8px; padding: .75rem; font-size: .95rem; font-family:'DM Sans',sans-serif; font-weight: 600; cursor: pointer; transition: all .2s; width: 100%; }
+    .btn:hover { filter: brightness(1.12); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+    .result { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--r); padding: 1.1rem 1.4rem; margin-top: 1.2rem; display: none; }
+    .result.on { display: block; }
+    .rr { display: flex; justify-content: space-between; align-items: center; padding: .42rem 0; border-bottom: 1px solid var(--border); font-size: .92rem; }
+    .rr:last-child { border-bottom: none; }
+    .rl { color: var(--muted); }
+    .rv { font-weight: 600; color: var(--blue); }
+    .err { color: var(--danger); font-size: .83rem; margin-top: .5rem; display: none; }
+    .err.on { display: block; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); background: var(--surface); margin-top: 4rem; padding: 2.5rem 1.5rem; text-align: center; }
+    .flinks { display: flex; flex-wrap: wrap; gap: .4rem; justify-content: center; margin-bottom: 1rem; }
+    .flinks a { color: var(--muted); text-decoration: none; font-size: .83rem; padding: .3rem .55rem; border-radius: 5px; transition: color .2s; }
+    .flinks a:hover { color: var(--blue); }
+    footer p { color: var(--muted); font-size: .8rem; margin-top: .4rem; }
+
+    /* MOBILE */
+    @media (max-width: 800px) {
+      .hbg { display: block; }
+      nav { display: none; position: absolute; top: 58px; left: 0; right: 0; background: var(--surface); border-bottom: 1px solid var(--border); flex-direction: column; padding: .75rem 1.5rem; gap: .05rem; }
+      nav.open { display: flex; }
+      .two-col { grid-template-columns: 1fr; }
+      .fields { grid-template-columns: 1fr; }
+      .ad-side { min-height: 100px; }
+    }
+    [id] { scroll-margin-top: 70px; }
+  
+/* ===== LIGHT MODE ===== */
+body.light-mode {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --border: #d0d7de;
+  --text: #111827;
+  --muted: #4b5563;
+}
+
+/* TOGGLE BUTTONS */
+.top-btn{
+  background: var(--card);
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:.45rem .7rem;
+  border-radius:8px;
+  cursor:pointer;
+  font-size:.82rem;
+  font-weight:700;
+  transition:.2s;
+}
+
+.top-btn:hover{
+  border-color:var(--blue);
+  color:var(--blue);
+}
+
+/* RTL SUPPORT */
+html[dir="rtl"] body{
+  text-align:right;
+}
+
+html[dir="rtl"] .nav-inner,
+html[dir="rtl"] .rr{
+  direction:rtl;
+}
+
+html[dir="rtl"] .rr{
+  flex-direction:row-reverse;
+}
+
+html[dir="rtl"] .fields{
+  direction:rtl;
+}
+
+</style>
+</head>
+<body>
+
+
+<header>
+  <div class="nav-inner">
+
+    <a href="#" class="logo">Pro<span>Calc</span> Hub</a>
+
+    <div style="display:flex;align-items:center;gap:.5rem;">
+
+      <button id="langToggle" class="top-btn">AR</button>
+      <button id="themeToggle" class="top-btn">☀️</button>
+
+      <button class="hbg" aria-label="Menu"
+        onclick="document.querySelector('nav').classList.toggle('open')">
+        ☰
+      </button>
+
+    </div>
+
+    <nav aria-label="Main navigation">
+      <a href="#">🏠 <span data-en="Home" data-ar="الرئيسية">Home</span></a>
+      <a href="#loan">💰 <span data-en="Loan" data-ar="القروض">Loan</span></a>
+      <a href="#profit">📈 <span data-en="Profit" data-ar="الأرباح">Profit</span></a>
+      <a href="#roi">🎯 <span data-en="ROI" data-ar="العائد">ROI</span></a>
+      <a href="#bmi">⚖️ <span data-en="BMI" data-ar="مؤشر الجسم">BMI</span></a>
+      <a href="#age">🎂 <span data-en="Age" data-ar="العمر">Age</span></a>
+      <a href="#tax">🧾 <span data-en="Tax" data-ar="الضرائب">Tax</span></a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+<section class="hero" aria-labelledby="main-h1">
+  <h1 id="main-h1" data-en="Free Online Calculator Tools" data-ar="أدوات حساب مجانية أونلاين">Free Online<br>Calculator Tools</h1>
+  <p data-en="Fast, accurate, mobile-friendly calculators for your everyday financial and health decisions — no sign-up required." data-ar="حاسبات سريعة ودقيقة ومتوافقة مع الهاتف لاتخاذ قراراتك المالية والصحية بسهولة.">Fast, accurate, mobile-friendly calculators for your everyday financial and health decisions — no sign-up required.</p>
+  <div class="chips">
+    <a href="#loan" class="chip">💰 Loan</a>
+    <a href="#profit" class="chip">📈 Profit</a>
+    <a href="#roi" class="chip">🎯 ROI</a>
+    <a href="#bmi" class="chip">⚖️ BMI</a>
+    <a href="#age" class="chip">🎂 Age</a>
+    <a href="#tax" class="chip">🧾 Tax</a>
+  </div>
+</section>
+
+<!-- AD TOP -->
+<div class="ad-wrap" aria-label="Advertisement">
+  <p class="ad-label">Advertisement</p>
+  <div class="ad-box">
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1111111111"
+         data-ad-format="horizontal" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<!-- LOAN -->
+<hr />
+<section class="sec" id="loan" aria-labelledby="h-loan">
+  <h2 class="sec-title" id="h-loan" data-en="💰 Loan Calculator" data-ar="💰 حاسبة القروض">💰 Loan Calculator</h2>
+  <p class="sec-desc" data-en="Calculate your monthly mortgage, personal loan, or auto loan payment instantly." data-ar="احسب القسط الشهري للقروض العقارية والشخصية وقروض السيارات فوراً.">Calculate your monthly mortgage, personal loan, or auto loan payment instantly.</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field"><label for="l-amt">Loan Amount ($)</label><input type="number" id="l-amt" placeholder="e.g. 250000" min="0" /></div>
+        <div class="field"><label for="l-rate">Annual Interest Rate (%)</label><input type="number" id="l-rate" placeholder="e.g. 6.5" step="0.01" min="0" /></div>
+        <div class="field"><label for="l-term">Loan Term (years)</label><input type="number" id="l-term" placeholder="e.g. 30" min="1" /></div>
+        <div class="field"><label for="l-type">Loan Type</label>
+          <select id="l-type"><option>Mortgage</option><option>Personal Loan</option><option>Auto Loan</option></select>
+        </div>
+        <div class="field s2">
+          <button class="btn" onclick="calcLoan()">Calculate Loan Payment</button>
+          <p class="err" id="l-err">⚠ Please fill all fields with valid values.</p>
+        </div>
+      </div>
+      <div class="result" id="l-res" aria-live="polite">
+        <div class="rr"><span class="rl">Monthly Payment</span><span class="rv" id="l-mo"></span></div>
+        <div class="rr"><span class="rl">Total Payment</span><span class="rv" id="l-tot"></span></div>
+        <div class="rr"><span class="rl">Total Interest Paid</span><span class="rv" id="l-int"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="2222222222"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD IN-CONTENT -->
+<div class="ad-wrap" aria-label="Advertisement">
+  <p class="ad-label">Advertisement</p>
+  <div class="ad-box">
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="3333333333"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<!-- PROFIT -->
+<hr />
+<section class="sec" id="profit" aria-labelledby="h-profit">
+  <h2 class="sec-title" id="h-profit" data-en="📈 Profit Calculator" data-ar="📈 حاسبة الأرباح">📈 Profit Calculator</h2>
+  <p class="sec-desc" data-en="Find your gross profit, net profit, and profit margin in seconds." data-ar="احسب الربح الإجمالي وصافي الربح وهامش الربح خلال ثوانٍ.">Find your gross profit, net profit, and profit margin in seconds.</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field"><label for="p-rev">Revenue / Selling Price ($)</label><input type="number" id="p-rev" placeholder="e.g. 10000" min="0" /></div>
+        <div class="field"><label for="p-cogs">Cost of Goods Sold ($)</label><input type="number" id="p-cogs" placeholder="e.g. 6000" min="0" /></div>
+        <div class="field"><label for="p-exp">Operating Expenses ($)</label><input type="number" id="p-exp" placeholder="e.g. 1500" min="0" /></div>
+        <div class="field"><label for="p-tax">Tax Rate (%)</label><input type="number" id="p-tax" placeholder="e.g. 25" min="0" max="100" /></div>
+        <div class="field s2">
+          <button class="btn" onclick="calcProfit()">Calculate Profit</button>
+          <p class="err" id="p-err">⚠ Please enter valid revenue and cost values.</p>
+        </div>
+      </div>
+      <div class="result" id="p-res" aria-live="polite">
+        <div class="rr"><span class="rl">Gross Profit</span><span class="rv" id="p-gross"></span></div>
+        <div class="rr"><span class="rl">Gross Margin</span><span class="rv" id="p-gm"></span></div>
+        <div class="rr"><span class="rl">Operating Profit</span><span class="rv" id="p-op"></span></div>
+        <div class="rr"><span class="rl">Net Profit (after tax)</span><span class="rv" id="p-net"></span></div>
+        <div class="rr"><span class="rl">Net Profit Margin</span><span class="rv" id="p-nm"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="4444444444"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<hr />
+<section class="sec" id="roi" aria-labelledby="h-roi">
+  <h2 class="sec-title" id="h-roi" data-en="🎯 ROI Calculator" data-ar="🎯 حاسبة العائد">🎯 ROI Calculator</h2>
+  <p class="sec-desc" data-en="Measure the return on any investment — with annualized ROI included." data-ar="احسب العائد على الاستثمار مع العائد السنوي بسهولة.">Measure the return on any investment — with annualized ROI included.</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field"><label for="r-init">Initial Investment ($)</label><input type="number" id="r-init" placeholder="e.g. 5000" min="0" /></div>
+        <div class="field"><label for="r-fin">Final Value ($)</label><input type="number" id="r-fin" placeholder="e.g. 7500" min="0" /></div>
+        <div class="field"><label for="r-dur">Duration (months)</label><input type="number" id="r-dur" placeholder="e.g. 12" min="1" /></div>
+        <div class="field"><label for="r-cost">Additional Costs ($)</label><input type="number" id="r-cost" placeholder="e.g. 200" min="0" /></div>
+        <div class="field s2">
+          <button class="btn" onclick="calcROI()">Calculate ROI</button>
+          <p class="err" id="r-err">⚠ Please fill all fields with valid values.</p>
+        </div>
+      </div>
+      <div class="result" id="r-res" aria-live="polite">
+        <div class="rr"><span class="rl">Net Gain / Loss</span><span class="rv" id="r-gain"></span></div>
+        <div class="rr"><span class="rl">ROI %</span><span class="rv" id="r-pct"></span></div>
+        <div class="rr"><span class="rl">Annualized ROI</span><span class="rv" id="r-ann"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="5555555555"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD MID -->
+<div class="ad-wrap" aria-label="Advertisement">
+  <p class="ad-label">Advertisement</p>
+  <div class="ad-box" style="min-height:250px;">
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:250px;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="6666666666"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+<!-- BMI -->
+<hr />
+<section class="sec" id="bmi" aria-labelledby="h-bmi">
+  <h2 class="sec-title" id="h-bmi" data-en="⚖️ BMI Calculator" data-ar="⚖️ حاسبة مؤشر الجسم">⚖️ BMI Calculator</h2>
+  <p class="sec-desc" data-en="Check your Body Mass Index and healthy weight range — metric or imperial units." data-ar="تحقق من مؤشر كتلة الجسم والوزن الصحي بالنظام المتري أو الإمبراطوري.">Check your Body Mass Index and healthy weight range — metric or imperial units.</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field s2"><label for="b-unit">Unit System</label>
+          <select id="b-unit" onchange="toggleBMI()"><option value="metric">Metric (kg / cm)</option><option value="imperial">Imperial (lbs / inches)</option></select>
+        </div>
+        <div class="field"><label for="b-wt" id="b-wt-lbl">Weight (kg)</label><input type="number" id="b-wt" placeholder="e.g. 75" min="0" /></div>
+        <div class="field"><label for="b-ht" id="b-ht-lbl">Height (cm)</label><input type="number" id="b-ht" placeholder="e.g. 175" min="0" /></div>
+        <div class="field"><label for="b-age">Age</label><input type="number" id="b-age" placeholder="e.g. 30" min="2" max="120" /></div>
+        <div class="field"><label for="b-sex">Gender</label><select id="b-sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+        <div class="field s2">
+          <button class="btn" onclick="calcBMI()">Calculate BMI</button>
+          <p class="err" id="b-err">⚠ Please enter valid weight and height values.</p>
+        </div>
+      </div>
+      <div class="result" id="b-res" aria-live="polite">
+        <div class="rr"><span class="rl">Your BMI</span><span class="rv" id="b-score"></span></div>
+        <div class="rr"><span class="rl">Category</span><span class="rv" id="b-cat"></span></div>
+        <div class="rr"><span class="rl">Healthy Weight Range</span><span class="rv" id="b-range"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="7777777777"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGE -->
+<hr />
+<section class="sec" id="age" aria-labelledby="h-age">
+  <h2 class="sec-title" id="h-age" data-en="🎂 Age Calculator" data-ar="🎂 حاسبة العمر">🎂 Age Calculator</h2>
+  <p class="sec-desc" data-en="Find your exact age in years, months, days — and countdown to your next birthday." data-ar="احسب عمرك بالسنوات والأشهر والأيام مع العد التنازلي لعيد ميلادك.">Find your exact age in years, months, days — and countdown to your next birthday.</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field"><label for="a-dob">Date of Birth</label><input type="date" id="a-dob" /></div>
+        <div class="field"><label for="a-tgt">Calculate Age On</label><input type="date" id="a-tgt" /></div>
+        <div class="field s2">
+          <button class="btn" onclick="calcAge()">Calculate Age</button>
+          <p class="err" id="a-err">⚠ Date of birth must be before the target date.</p>
+        </div>
+      </div>
+      <div class="result" id="a-res" aria-live="polite">
+        <div class="rr"><span class="rl">Age</span><span class="rv" id="a-yrs"></span></div>
+        <div class="rr"><span class="rl">Total Months</span><span class="rv" id="a-mo"></span></div>
+        <div class="rr"><span class="rl">Total Days</span><span class="rv" id="a-dy"></span></div>
+        <div class="rr"><span class="rl">Next Birthday In</span><span class="rv" id="a-nxt"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="8888888888"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAX -->
+<hr />
+<section class="sec" id="tax" aria-labelledby="h-tax">
+  <h2 class="sec-title" id="h-tax" data-en="🧾 Tax Calculator" data-ar="🧾 حاسبة الضرائب">🧾 Tax Calculator</h2>
+  <p class="sec-desc" data-en="Estimate your US federal income tax, effective rate, and take-home pay (2024 tax brackets)." data-ar="احسب الضرائب الفيدرالية الأمريكية وصافي الدخل المتوقع.">Estimate your US federal income tax, effective rate, and take-home pay (2024 tax brackets).</p>
+  <div class="two-col">
+    <div class="card">
+      <div class="fields">
+        <div class="field"><label for="t-inc">Annual Income ($)</label><input type="number" id="t-inc" placeholder="e.g. 85000" min="0" /></div>
+        <div class="field"><label for="t-fil">Filing Status</label>
+          <select id="t-fil"><option value="single">Single</option><option value="married">Married Filing Jointly</option><option value="hoh">Head of Household</option></select>
+        </div>
+        <div class="field"><label for="t-ded">Additional Deductions ($)</label><input type="number" id="t-ded" placeholder="e.g. 5000" min="0" /></div>
+        <div class="field"><label for="t-cred">Tax Credits ($)</label><input type="number" id="t-cred" placeholder="e.g. 0" min="0" /></div>
+        <div class="field s2">
+          <button class="btn" onclick="calcTax()">Calculate Tax</button>
+          <p class="err" id="t-err">⚠ Please enter a valid income amount.</p>
+        </div>
+      </div>
+      <div class="result" id="t-res" aria-live="polite">
+        <div class="rr"><span class="rl">Taxable Income</span><span class="rv" id="t-taxable"></span></div>
+        <div class="rr"><span class="rl">Estimated Federal Tax</span><span class="rv" id="t-tax"></span></div>
+        <div class="rr"><span class="rl">Effective Tax Rate</span><span class="rv" id="t-eff"></span></div>
+        <div class="rr"><span class="rl">Take-Home Pay (annual)</span><span class="rv" id="t-home"></span></div>
+        <div class="rr"><span class="rl">Monthly Take-Home</span><span class="rv" id="t-mopay"></span></div>
+      </div>
+    </div>
+    <div>
+      <p class="ad-label">Advertisement</p>
+      <div class="ad-side">
+        <ins class="adsbygoogle" style="display:block;width:100%;min-height:280px;"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="9999999999"
+             data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AD FOOTER -->
+<div class="ad-wrap" aria-label="Advertisement">
+  <p class="ad-label">Advertisement</p>
+  <div class="ad-box">
+    <ins class="adsbygoogle" style="display:block;width:100%;min-height:90px;"
+         data-ad-client="ca-pub-XXXXXXXXXXXXXXXX" data-ad-slot="1010101010"
+         data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div class="flinks">
+    <a href="#">Home</a>
+    <a href="#loan">Loan Calculator</a>
+    <a href="#profit">Profit Calculator</a>
+    <a href="#roi">ROI Calculator</a>
+    <a href="#bmi">BMI Calculator</a>
+    <a href="#age">Age Calculator</a>
+    <a href="#tax">Tax Calculator</a>
+  </div>
+  <p>Results are for informational purposes only. Consult a qualified professional for financial or medical decisions.</p>
+  <p>&copy; <span id="yr"></span> Pro Calculator Hub. All rights reserved.</p>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  document.getElementById('a-tgt').value = new Date().toISOString().split('T')[0];
+
+  const G = id => document.getElementById(id);
+  const show = id => G(id).classList.add('on');
+  const hide = id => G(id).classList.remove('on');
+
+  function money(n) {
+    const neg = n < 0;
+    const s = '$' + Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    return neg ? '-' + s : s;
+  }
+  function percent(n) { return n.toFixed(2) + '%'; }
+
+  /* LOAN */
+  function calcLoan() {
+    const P = parseFloat(G('l-amt').value);
+    const annRate = parseFloat(G('l-rate').value);
+    const years = parseFloat(G('l-term').value);
+    hide('l-err'); hide('l-res');
+    if (!P || isNaN(annRate) || !years || P <= 0 || years <= 0) { show('l-err'); return; }
+    const r = annRate / 100 / 12, n = years * 12;
+    const m = r === 0 ? P / n : P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    const total = m * n;
+    G('l-mo').textContent  = money(m);
+    G('l-tot').textContent = money(total);
+    G('l-int').textContent = money(total - P);
+    show('l-res');
+  }
+
+  /* PROFIT */
+  function calcProfit() {
+    const rev  = parseFloat(G('p-rev').value);
+    const cogs = parseFloat(G('p-cogs').value);
+    const exp  = parseFloat(G('p-exp').value)  || 0;
+    const tax  = parseFloat(G('p-tax').value)  || 0;
+    hide('p-err'); hide('p-res');
+    if (isNaN(rev) || isNaN(cogs) || rev < 0 || cogs < 0) { show('p-err'); return; }
+    const gross = rev - cogs;
+    const gm    = rev > 0 ? gross / rev * 100 : 0;
+    const op    = gross - exp;
+    const net   = op * (1 - tax / 100);
+    const nm    = rev > 0 ? net / rev * 100 : 0;
+    G('p-gross').textContent = money(gross);
+    G('p-gm').textContent    = percent(gm);
+    G('p-op').textContent    = money(op);
+    G('p-net').textContent   = money(net);
+    G('p-nm').textContent    = percent(nm);
+    show('p-res');
+  }
+
+  /* ROI */
+  function calcROI() {
+    const init  = parseFloat(G('r-init').value);
+    const fin   = parseFloat(G('r-fin').value);
+    const mo    = parseFloat(G('r-dur').value);
+    const costs = parseFloat(G('r-cost').value) || 0;
+    hide('r-err'); hide('r-res');
+    if (!init || isNaN(fin) || !mo || init <= 0) { show('r-err'); return; }
+    const total = init + costs;
+    const gain  = fin - total;
+    const roi   = gain / total * 100;
+    const yrs   = mo / 12;
+    const ann   = (Math.pow(fin / total, 1 / yrs) - 1) * 100;
+    G('r-gain').textContent = money(gain);
+    G('r-pct').textContent  = percent(roi);
+    G('r-ann').textContent  = percent(ann);
+    show('r-res');
+  }
+
+  /* BMI */
+  function toggleBMI() {
+    const metric = G('b-unit').value === 'metric';
+    G('b-wt-lbl').textContent = metric ? 'Weight (kg)' : 'Weight (lbs)';
+    G('b-ht-lbl').textContent = metric ? 'Height (cm)' : 'Height (inches)';
+    G('b-wt').placeholder = metric ? 'e.g. 75' : 'e.g. 165';
+    G('b-ht').placeholder = metric ? 'e.g. 175' : 'e.g. 69';
+  }
+  function calcBMI() {
+    const metric = G('b-unit').value === 'metric';
+    const wt = parseFloat(G('b-wt').value);
+    const ht = parseFloat(G('b-ht').value);
+    hide('b-err'); hide('b-res');
+    if (!wt || !ht || wt <= 0 || ht <= 0) { show('b-err'); return; }
+    const bmi = metric ? wt / ((ht / 100) ** 2) : 703 * wt / (ht * ht);
+    const cat = bmi < 18.5 ? '🔵 Underweight' : bmi < 25 ? '🟢 Normal weight' : bmi < 30 ? '🟡 Overweight' : '🔴 Obese';
+    let lo, hi;
+    if (metric) {
+      const h = ht / 100;
+      lo = (18.5 * h * h).toFixed(1) + ' kg';
+      hi = (24.9 * h * h).toFixed(1) + ' kg';
+    } else {
+      lo = (18.5 * ht * ht / 703).toFixed(1) + ' lbs';
+      hi = (24.9 * ht * ht / 703).toFixed(1) + ' lbs';
+    }
+    G('b-score').textContent = bmi.toFixed(1);
+    G('b-cat').textContent   = cat;
+    G('b-range').textContent = lo + ' – ' + hi;
+    show('b-res');
+  }
+
+  /* AGE */
+  function calcAge() {
+    const dob = new Date(G('a-dob').value);
+    const tgt = new Date(G('a-tgt').value);
+    hide('a-err'); hide('a-res');
+    if (!G('a-dob').value || dob >= tgt) { show('a-err'); return; }
+    let y = tgt.getFullYear() - dob.getFullYear();
+    let m = tgt.getMonth() - dob.getMonth();
+    let d = tgt.getDate() - dob.getDate();
+    if (d < 0) { m--; d += new Date(tgt.getFullYear(), tgt.getMonth(), 0).getDate(); }
+    if (m < 0) { y--; m += 12; }
+    const totMo = y * 12 + m;
+    const totDy = Math.floor((tgt - dob) / 86400000);
+    let nxt = new Date(tgt.getFullYear(), dob.getMonth(), dob.getDate());
+    if (nxt <= tgt) nxt.setFullYear(nxt.getFullYear() + 1);
+    const dToNxt = Math.floor((nxt - tgt) / 86400000);
+    G('a-yrs').textContent = y + ' years, ' + m + ' months, ' + d + ' days';
+    G('a-mo').textContent  = totMo.toLocaleString() + ' months total';
+    G('a-dy').textContent  = totDy.toLocaleString() + ' days total';
+    G('a-nxt').textContent = dToNxt + ' days';
+    show('a-res');
+  }
+
+  /* TAX — US Federal 2024 Brackets */
+  function calcTax() {
+    const inc  = parseFloat(G('t-inc').value);
+    const fil  = G('t-fil').value;
+    const ded  = parseFloat(G('t-ded').value)  || 0;
+    const cred = parseFloat(G('t-cred').value) || 0;
+    hide('t-err'); hide('t-res');
+    if (isNaN(inc) || inc < 0) { show('t-err'); return; }
+    const std   = { single: 14600, married: 29200, hoh: 21900 };
+    const taxable = Math.max(0, inc - std[fil] - ded);
+    const brackets = {
+      single:  [[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]],
+      married: [[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]],
+      hoh:     [[16550,.10],[63100,.12],[100500,.22],[191950,.24],[243700,.32],[609350,.35],[Infinity,.37]]
+    };
+    let tax = 0, prev = 0;
+    for (const [lim, rate] of brackets[fil]) {
+      if (taxable <= prev) break;
+      tax += (Math.min(taxable, lim) - prev) * rate;
+      prev = lim;
+    }
+    const finalTax = Math.max(0, tax - cred);
+    const eff  = inc > 0 ? finalTax / inc * 100 : 0;
+    const home = inc - finalTax;
+    G('t-taxable').textContent = money(taxable);
+    G('t-tax').textContent     = money(finalTax);
+    G('t-eff').textContent     = percent(eff);
+    G('t-home').textContent    = money(home);
+    G('t-mopay').textContent   = money(home / 12);
+    show('t-res');
+  }
+
+  /* Active nav highlight on scroll */
+  const secs  = document.querySelectorAll('section[id]');
+  const links = document.querySelectorAll('nav a[href^="#"]');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    secs.forEach(s => { if (window.scrollY >= s.offsetTop - 110) cur = s.id; });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+  }, { passive: true });
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+const themeToggle = document.getElementById("themeToggle");
+
+if(localStorage.getItem("theme")==="light"){
+  document.body.classList.add("light-mode");
+  themeToggle.innerHTML = "🌙";
+}
+
+themeToggle.addEventListener("click",()=>{
+
+  document.body.classList.toggle("light-mode");
+
+  if(document.body.classList.contains("light-mode")){
+    localStorage.setItem("theme","light");
+    themeToggle.innerHTML = "🌙";
+  }else{
+    localStorage.setItem("theme","dark");
+    themeToggle.innerHTML = "☀️";
+  }
+
+});
+
+
+/* =========================
+   LANGUAGE SWITCHER
+========================= */
+
+const langToggle = document.getElementById("langToggle");
+
+function setLanguage(lang){
+
+  document.documentElement.lang = lang;
+
+  if(lang==="ar"){
+    document.documentElement.dir = "rtl";
+    langToggle.innerHTML = "EN";
+  }else{
+    document.documentElement.dir = "ltr";
+    langToggle.innerHTML = "AR";
+  }
+
+  document.querySelectorAll("[data-en]").forEach(el=>{
+    el.innerHTML = el.dataset[lang];
+  });
+
+  const placeholders = {
+    ar: {
+      "e.g. 250000":"مثال 250000",
+      "e.g. 6.5":"مثال 6.5",
+      "e.g. 30":"مثال 30"
+    },
+    en: {
+      "مثال 250000":"e.g. 250000",
+      "مثال 6.5":"e.g. 6.5",
+      "مثال 30":"e.g. 30"
+    }
+  };
+
+  document.querySelectorAll("input").forEach(inp=>{
+    if(placeholders[lang][inp.placeholder]){
+      inp.placeholder = placeholders[lang][inp.placeholder];
+    }
+  });
+
+  localStorage.setItem("lang",lang);
+}
+
+langToggle.addEventListener("click",()=>{
+
+  const current =
+    document.documentElement.lang === "ar"
+    ? "en"
+    : "ar";
+
+  setLanguage(current);
+
+});
+
+
+/* LOAD SAVED LANGUAGE */
+
+setLanguage(
+  localStorage.getItem("lang") || "en"
+);
+
+</script>
+</body>
+</html>
