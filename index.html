@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProCalc Hub — Free Online Calculators</title>
+<meta name="description" content="Free online calculators for loan, BMI, ROI, profit, tax, age, tip & percentage.">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#09090f;--surface:#111118;--card:#16161f;--border:#242432;--border2:#2e2e42;
+  --accent:#e8a020;--accent-d:rgba(232,160,32,.1);--accent-g:rgba(232,160,32,.2);
+  --text:#eeeef8;--text2:#8888aa;--text3:#44445a;
+  --green:#34d399;--red:#f87171;--blue:#60a5fa;--purple:#a78bfa;
+  --orange:#fb923c;--cyan:#22d3ee;--pink:#e879f9;
+  --r:16px;--rs:10px;--sh:0 12px 40px rgba(0,0,0,.5);--t:.18s ease;
+}
+[data-theme="light"]{
+  --bg:#f0f2f9;--surface:#fff;--card:#fff;--border:#dde0f0;--border2:#e8ebf8;
+  --accent:#c8880a;--accent-d:rgba(200,136,10,.08);--accent-g:rgba(200,136,10,.16);
+  --text:#111122;--text2:#4a4a6a;--text3:#aaaacc;
+  --green:#059669;--red:#dc2626;--blue:#2563eb;--purple:#7c3aed;
+  --orange:#ea580c;--cyan:#0891b2;--pink:#c026d3;--sh:0 4px 24px rgba(0,0,0,.07);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{
+  font-family:'Outfit',sans-serif;background:var(--bg);color:var(--text);
+  line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s;
+}
+[dir="rtl"] body,[dir="rtl"]{font-family:'Cairo',sans-serif}
+[dir="rtl"] .logo,[dir="rtl"] .sec-title,[dir="rtl"] .hero h1{font-family:'Cairo',sans-serif}
+[dir="rtl"] .nav-in{flex-direction:row-reverse}
+[dir="rtl"] .sec-hd{flex-direction:row-reverse}
+[dir="rtl"] .rrow{flex-direction:row-reverse}
+[dir="rtl"] input,[dir="rtl"] select{text-align:right}
+[dir="rtl"] select{background-position:left 13px center;padding-right:14px;padding-left:36px}
+[dir="rtl"] .iw .pre{left:auto;right:13px}
+[dir="rtl"] .iw.has-pre input{padding-left:14px;padding-right:30px}
+[dir="rtl"] .iw .suf{right:auto;left:13px}
+[dir="rtl"] .iw.has-suf input{padding-right:14px;padding-left:34px}
+[dir="rtl"] .res-hd{flex-direction:row-reverse}
+[dir="rtl"] .sec-hd .sec-title,[dir="rtl"] .sec-hd .sec-desc{text-align:right}
+[dir="rtl"] .ft-links,[dir="rtl"] .pills,[dir="rtl"] .radio-row{flex-direction:row-reverse}
+[dir="rtl"] .pct-tabs{flex-direction:row-reverse}
+[dir="rtl"] .tip-presets{flex-direction:row-reverse}
+[dir="rtl"] .nav-links{flex-direction:row-reverse}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 15% 10%,rgba(232,160,32,.035) 0%,transparent 60%),
+             radial-gradient(ellipse 50% 40% at 85% 85%,rgba(96,165,250,.03) 0%,transparent 60%);
+  pointer-events:none;z-index:0;
+}
+a{text-decoration:none;color:inherit}
+/* progress */
+#prog{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#f0c060);z-index:999;width:0%;transition:width .08s linear}
+/* nav */
+#nav{position:sticky;top:0;z-index:100;background:rgba(9,9,15,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);transition:background .3s}
+[data-theme="light"] #nav{background:rgba(240,242,249,.88)}
+.nav-in{max-width:1280px;margin:0 auto;padding:0 24px;height:64px;display:flex;align-items:center;gap:12px}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.15rem;color:var(--accent);letter-spacing:-.02em;white-space:nowrap;flex-shrink:0}
+.logo em{color:var(--text);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;padding:4px 0}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-link{font-size:.77rem;font-weight:500;color:var(--text2);padding:6px 11px;border-radius:8px;white-space:nowrap;transition:all var(--t)}
+.nav-link:hover{color:var(--text);background:var(--border)}
+.nav-link.active{color:var(--accent);background:var(--accent-d)}
+.nav-act{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.ico-btn{width:36px;height:36px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:700;transition:all var(--t);font-family:'Outfit',sans-serif}
+.ico-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-d)}
+/* hero */
+.hero{max-width:1280px;margin:0 auto;padding:80px 24px 64px;text-align:center;position:relative;z-index:1}
+.badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent-d);border:1px solid rgba(232,160,32,.28);color:var(--accent);font-size:.73rem;font-weight:700;padding:6px 16px;border-radius:100px;margin-bottom:24px;letter-spacing:.06em;text-transform:uppercase}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.6rem);font-weight:800;line-height:1.12;letter-spacing:-.035em;margin-bottom:20px}
+.hero h1 .hl{color:var(--accent);text-shadow:0 0 40px rgba(232,160,32,.3)}
+.hero p{font-size:1rem;color:var(--text2);max-width:480px;margin:0 auto 40px}
+.pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.pill{display:inline-flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);color:var(--text2);font-size:.82rem;font-weight:500;padding:8px 16px;border-radius:100px;transition:all var(--t)}
+.pill:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-d);transform:translateY(-2px)}
+/* section */
+.sec{max-width:1280px;margin:0 auto;padding:48px 24px;position:relative;z-index:1}
+.sec+.sec{border-top:1px solid var(--border)}
+.sec-hd{display:flex;align-items:flex-start;gap:16px;margin-bottom:32px}
+.sec-ico{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.sec-title{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
+.sec-desc{font-size:.88rem;color:var(--text2)}
+/* grid & card */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;transition:border-color var(--t),box-shadow var(--t)}
+.card:hover{border-color:var(--border2);box-shadow:var(--sh)}
+/* form */
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.77rem;font-weight:700;color:var(--text2);margin-bottom:7px;letter-spacing:.04em;text-transform:uppercase}
+[dir="rtl"] .fg label{letter-spacing:0;text-align:right}
+.iw{position:relative}
+.iw .pre{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--text3);font-family:'DM Mono',monospace;font-size:.84rem;pointer-events:none}
+.iw .suf{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:.8rem;pointer-events:none}
+input[type="number"],input[type="text"],input[type="date"],select{
+  width:100%;background:var(--surface);border:1px solid var(--border);border-radius:var(--rs);
+  padding:10px 14px;font-family:'Outfit',sans-serif;font-size:.94rem;color:var(--text);
+  transition:border-color var(--t),box-shadow var(--t);-webkit-appearance:none;appearance:none;
+}
+[dir="rtl"] input[type="number"],[dir="rtl"] input[type="text"],[dir="rtl"] input[type="date"],[dir="rtl"] select{font-family:'Cairo',sans-serif}
+.iw.has-pre input{padding-left:30px}
+.iw.has-suf input{padding-right:34px}
+input:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-g)}
+input::placeholder{color:var(--text3)}
+select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:36px;cursor:pointer}
+.radio-row{display:flex;gap:8px;flex-wrap:wrap}
+.rb input{display:none}
+.rb label{display:block;text-align:center;padding:8px 12px;min-width:72px;border:1px solid var(--border);border-radius:var(--rs);cursor:pointer;font-size:.81rem;font-weight:500;color:var(--text2);background:var(--surface);transition:all var(--t);text-transform:none;letter-spacing:0}
+.rb input:checked+label{border-color:var(--accent);color:var(--accent);background:var(--accent-d)}
+/* buttons */
+.btn{width:100%;padding:12px 20px;border-radius:var(--rs);border:none;font-family:'Outfit',sans-serif;font-size:.94rem;font-weight:600;cursor:pointer;transition:all var(--t);display:flex;align-items:center;justify-content:center;gap:8px;margin-top:20px}
+[dir="rtl"] .btn{font-family:'Cairo',sans-serif}
+.btn-p{background:var(--accent);color:#000}
+.btn-p:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px var(--accent-g)}
+.btn-p:active{transform:translateY(0)}
+/* error */
+.err{display:none;align-items:center;gap:8px;color:var(--red);font-size:.81rem;padding:10px 14px;background:rgba(248,113,113,.07);border:1px solid rgba(248,113,113,.2);border-radius:var(--rs);margin-top:12px}
+.err.on{display:flex}
+/* results */
+.res{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-top:16px;display:none}
+.res.on{display:block;animation:fadeUp .28s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.res-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.res-lbl{font-size:.72rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--text3)}
+[dir="rtl"] .res-lbl{letter-spacing:0}
+.copy-btn{display:flex;align-items:center;gap:5px;font-size:.73rem;color:var(--text3);background:none;border:1px solid var(--border);padding:4px 10px;border-radius:6px;cursor:pointer;transition:all var(--t);font-family:'Outfit',sans-serif}
+.copy-btn:hover{color:var(--accent);border-color:var(--accent)}
+.copy-btn.ok{color:var(--green);border-color:var(--green)}
+.rrow{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}
+.rrow:last-child{border-bottom:none;padding-bottom:0}
+.rlabel{font-size:.84rem;color:var(--text2)}
+.rval{font-family:'DM Mono',monospace;font-size:.92rem;font-weight:500;color:var(--text)}
+.rval.g{color:var(--green)}.rval.r{color:var(--red)}.rval.a{color:var(--accent);font-size:1.05rem}
+.hero-res{text-align:center;padding:18px 0 16px;border-bottom:1px solid var(--border);margin-bottom:16px}
+.hero-res-lbl{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:8px}
+[dir="rtl"] .hero-res-lbl{letter-spacing:0}
+.hero-res-val{font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;color:var(--accent)}
+.hero-res-sub{font-size:.78rem;color:var(--text3);margin-top:4px}
+/* bmi gauge */
+.bmi-gauge-wrap{display:flex;flex-direction:column;align-items:center;padding:12px 0 8px}
+.bmi-cat-badge{display:inline-block;padding:4px 16px;border-radius:100px;font-size:.8rem;font-weight:700;margin-top:8px}
+/* amortization */
+.amort-btn{display:flex;align-items:center;justify-content:center;gap:6px;font-size:.8rem;color:var(--text3);background:none;border:none;cursor:pointer;margin-top:14px;width:100%;padding:8px;border-top:1px solid var(--border);transition:color var(--t);font-family:'Outfit',sans-serif}
+[dir="rtl"] .amort-btn{font-family:'Cairo',sans-serif}
+.amort-btn:hover{color:var(--accent)}
+.amort-wrap{display:none;overflow-x:auto;margin-top:12px;max-height:320px;overflow-y:auto}
+.amort-wrap.on{display:block}
+.amort-tbl{width:100%;border-collapse:collapse;font-size:.76rem;font-family:'DM Mono',monospace}
+.amort-tbl th{padding:8px 10px;text-align:right;color:var(--text3);font-size:.7rem;text-transform:uppercase;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface)}
+.amort-tbl th:first-child{text-align:left}
+[dir="rtl"] .amort-tbl th{text-align:left}
+[dir="rtl"] .amort-tbl th:first-child{text-align:right}
+.amort-tbl td{padding:5px 10px;text-align:right;border-bottom:1px solid var(--border);color:var(--text2)}
+.amort-tbl td:first-child{text-align:left;color:var(--text3)}
+[dir="rtl"] .amort-tbl td{text-align:left}
+[dir="rtl"] .amort-tbl td:first-child{text-align:right}
+.amort-tbl tr:last-child td{border-bottom:none}
+.amort-tbl tr:nth-child(even) td{background:rgba(255,255,255,.015)}
+[data-theme="light"] .amort-tbl tr:nth-child(even) td{background:rgba(0,0,0,.015)}
+/* tip */
+.tip-presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.tpre{flex:1;min-width:48px;padding:7px 8px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text2);font-size:.8rem;font-weight:600;cursor:pointer;text-align:center;transition:all var(--t);font-family:'Outfit',sans-serif}
+.tpre:hover{border-color:var(--cyan);color:var(--cyan)}
+.tpre.on{border-color:var(--cyan);background:rgba(34,211,238,.1);color:var(--cyan)}
+/* pct tabs */
+.pct-tabs{display:flex;gap:4px;background:var(--surface);border-radius:12px;padding:4px;margin-bottom:24px}
+.ptab{flex:1;padding:8px;border:none;background:none;border-radius:9px;color:var(--text2);font-size:.8rem;font-weight:500;cursor:pointer;transition:all var(--t);font-family:'Outfit',sans-serif;white-space:nowrap}
+[dir="rtl"] .ptab{font-family:'Cairo',sans-serif}
+.ptab.on{background:var(--accent);color:#000;font-weight:700}
+/* ad */
+.ad{height:90px;background:var(--card);border:1px dashed var(--border);border-radius:var(--rs);display:flex;align-items:center;justify-content:center;color:var(--text3);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;margin:28px 0 0}
+/* footer */
+footer{border-top:1px solid var(--border);margin-top:60px;padding:44px 24px 36px;text-align:center;position:relative;z-index:1}
+.ft-inner{max-width:1280px;margin:0 auto}
+.ft-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;color:var(--accent);margin-bottom:16px}
+[dir="rtl"] .ft-logo{font-family:'Cairo',sans-serif}
+.ft-logo em{color:var(--text2);font-style:normal}
+.ft-links{display:flex;flex-wrap:wrap;gap:16px;justify-content:center;margin-bottom:20px}
+.ft-link{font-size:.83rem;color:var(--text3);transition:color var(--t)}
+.ft-link:hover{color:var(--accent)}
+.ft-copy{font-size:.78rem;color:var(--text3);line-height:1.8}
+/* back to top */
+#btt{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:12px;background:var(--accent);color:#000;border:none;cursor:pointer;display:none;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 20px rgba(0,0,0,.35);transition:all var(--t);z-index:50;font-weight:700}
+#btt.on{display:flex}
+#btt:hover{transform:translateY(-3px);filter:brightness(1.1)}
+@media(max-width:768px){.nav-links{display:none}.hero{padding:48px 20px 40px}.sec{padding:36px 20px}.hero h1{font-size:2rem}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo">ProCalc<em> Hub</em></a>
+    <div class="nav-links">
+      <a href="#"       class="nav-link active" data-i18n="nav_home">🏠 Home</a>
+      <a href="#loan"   class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+      <a href="#profit" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+      <a href="#roi"    class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+      <a href="#bmi"    class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+      <a href="#age"    class="nav-link" data-i18n="nav_age">🎂 Age</a>
+      <a href="#tax"    class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+      <a href="#tip"    class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+      <a href="#percent" class="nav-link" data-i18n="nav_pct">% Percent</a>
+    </div>
+    <div class="nav-act">
+      <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+      <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge" data-i18n="hero_badge">✦ Free · No sign-up · Instant results</div>
+  <h1><span data-i18n="hero_h1a">Free Online</span><br><span class="hl" data-i18n="hero_h1b">Calculator Tools</span></h1>
+  <p data-i18n="hero_p">Fast, accurate, mobile-friendly calculators for your everyday financial and health decisions.</p>
+  <div class="pills">
+    <a href="#loan"    class="pill" data-i18n="nav_loan">💰 Loan</a>
+    <a href="#profit"  class="pill" data-i18n="nav_profit">📈 Profit</a>
+    <a href="#roi"     class="pill" data-i18n="nav_roi">🎯 ROI</a>
+    <a href="#bmi"     class="pill" data-i18n="nav_bmi">⚖️ BMI</a>
+    <a href="#age"     class="pill" data-i18n="nav_age">🎂 Age</a>
+    <a href="#tax"     class="pill" data-i18n="nav_tax">🧾 Tax</a>
+    <a href="#tip"     class="pill" data-i18n="nav_tip">💡 Tip</a>
+    <a href="#percent" class="pill" data-i18n="nav_pct">% Percent</a>
+  </div>
+</section>
+
+<!-- ══ LOAN ══ -->
+<section class="sec" id="loan">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(232,160,32,.12);color:#e8a020">💰</div>
+    <div>
+      <div class="sec-title" data-i18n="loan_title">Loan Calculator</div>
+      <div class="sec-desc"  data-i18n="loan_desc">Calculate monthly mortgage, personal loan, or auto loan payments.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="loan_amount">Loan Amount</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="lAmt" data-i18n-ph="ph_amount" placeholder="250,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="loan_rate">Annual Interest Rate</label>
+        <div class="iw has-suf">
+          <input type="number" id="lRate" placeholder="6.5" min="0" max="100" step="0.01">
+          <span class="suf">%</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="loan_term">Loan Term</label>
+        <div class="iw has-suf">
+          <input type="number" id="lTerm" data-i18n-ph="ph_years" placeholder="30" min="1" max="50">
+          <span class="suf" data-i18n="unit_yrs">yrs</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="loan_type">Loan Type</label>
+        <div class="radio-row">
+          <div class="rb"><input type="radio" name="lType" id="lt1" value="Mortgage" checked><label for="lt1" data-i18n="loan_mortgage">Mortgage</label></div>
+          <div class="rb"><input type="radio" name="lType" id="lt2" value="Personal"><label for="lt2" data-i18n="loan_personal">Personal</label></div>
+          <div class="rb"><input type="radio" name="lType" id="lt3" value="Auto"><label for="lt3" data-i18n="loan_auto">Auto</label></div>
+        </div>
+      </div>
+      <div class="err" id="lErr" data-i18n="err_fill">⚠ Please fill all fields with valid values.</div>
+      <button class="btn btn-p" onclick="calcLoan()" data-i18n="loan_btn">Calculate Payment →</button>
+    </div>
+    <div class="res" id="lRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('lRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="hero-res">
+        <div class="hero-res-lbl" data-i18n="loan_monthly">Monthly Payment</div>
+        <div class="hero-res-val" id="lMonthly">—</div>
+        <div class="hero-res-sub" id="lSubLbl"></div>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="loan_total">Total Payment</span><span class="rval" id="lTotal"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="loan_interest">Total Interest Paid</span><span class="rval r" id="lInterest"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="loan_ratio">Interest / Principal</span><span class="rval" id="lRatio"></span></div>
+      <button class="amort-btn" id="amortBtn" onclick="toggleAmort()" data-i18n="amort_view">▼ View Amortization Schedule</button>
+      <div class="amort-wrap" id="amortWrap"></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ PROFIT ══ -->
+<section class="sec" id="profit">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(52,211,153,.12);color:#34d399">📈</div>
+    <div>
+      <div class="sec-title" data-i18n="profit_title">Profit Calculator</div>
+      <div class="sec-desc"  data-i18n="profit_desc">Find gross profit, net profit, and profit margins in seconds.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="profit_rev">Revenue / Selling Price</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="pRev" data-i18n-ph="ph_amount" placeholder="100,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="profit_cogs">Cost of Goods Sold</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="pCOGS" data-i18n-ph="ph_amount" placeholder="60,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="profit_opex">Operating Expenses</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="pOpex" data-i18n-ph="ph_zero" placeholder="15,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="lbl_taxrate">Tax Rate</label>
+        <div class="iw has-suf">
+          <input type="number" id="pTax" placeholder="21" min="0" max="100">
+          <span class="suf">%</span>
+        </div>
+      </div>
+      <div class="err" id="pErr" data-i18n="err_rev">⚠ Please enter valid revenue and cost values.</div>
+      <button class="btn btn-p" onclick="calcProfit()" style="background:var(--green)" data-i18n="profit_btn">Calculate Profit →</button>
+    </div>
+    <div class="res" id="pRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('pRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="profit_gross">Gross Profit</span><span class="rval g" id="pGross"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="profit_grossm">Gross Margin</span><span class="rval" id="pGrossM"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="profit_op">Operating Profit</span><span class="rval" id="pOp"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="profit_net">Net Profit (after tax)</span><span class="rval a" id="pNet"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="profit_netm">Net Profit Margin</span><span class="rval" id="pNetM"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ ROI ══ -->
+<section class="sec" id="roi">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(96,165,250,.12);color:#60a5fa">🎯</div>
+    <div>
+      <div class="sec-title" data-i18n="roi_title">ROI Calculator</div>
+      <div class="sec-desc"  data-i18n="roi_desc">Measure the return on any investment, with annualized ROI included.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="roi_init">Initial Investment</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="rInit" data-i18n-ph="ph_amount" placeholder="10,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="roi_final">Final Value</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="rFinal" data-i18n-ph="ph_amount" placeholder="15,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="roi_dur">Duration</label>
+        <div class="iw has-suf">
+          <input type="number" id="rDur" placeholder="24" min="1">
+          <span class="suf" data-i18n="unit_mo">mo</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="roi_costs">Additional Costs</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="rCosts" data-i18n-ph="ph_zero" placeholder="0" min="0">
+        </div>
+      </div>
+      <div class="err" id="rErr" data-i18n="err_fill">⚠ Please fill all fields with valid values.</div>
+      <button class="btn btn-p" onclick="calcROI()" style="background:var(--blue);color:#fff" data-i18n="roi_btn">Calculate ROI →</button>
+    </div>
+    <div class="res" id="rRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('rRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="hero-res">
+        <div class="hero-res-lbl" data-i18n="roi_lbl">ROI</div>
+        <div class="hero-res-val" id="rPct" style="color:var(--blue)">—</div>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="roi_gain">Net Gain / Loss</span><span class="rval" id="rGain"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="roi_annual">Annualized ROI</span><span class="rval" id="rAnnual"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="roi_break">Break-even Point</span><span class="rval" id="rBreak"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ BMI ══ -->
+<section class="sec" id="bmi">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(167,139,250,.12);color:#a78bfa">⚖️</div>
+    <div>
+      <div class="sec-title" data-i18n="bmi_title">BMI Calculator</div>
+      <div class="sec-desc"  data-i18n="bmi_desc">Check your Body Mass Index and healthy weight range — metric or imperial.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="bmi_unit">Unit System</label>
+        <div class="radio-row">
+          <div class="rb"><input type="radio" name="bUnit" id="bu1" value="metric" checked onchange="switchBmiUnit()"><label for="bu1" data-i18n="bmi_metric">Metric (kg/cm)</label></div>
+          <div class="rb"><input type="radio" name="bUnit" id="bu2" value="imperial" onchange="switchBmiUnit()"><label for="bu2" data-i18n="bmi_imperial">Imperial (lb/in)</label></div>
+        </div>
+      </div>
+      <div class="fg">
+        <label id="bWLbl" data-i18n="bmi_weight_kg">Weight (kg)</label>
+        <div class="iw has-suf">
+          <input type="number" id="bWeight" placeholder="70" min="1">
+          <span class="suf" id="bWUnit">kg</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label id="bHLbl" data-i18n="bmi_height_cm">Height (cm)</label>
+        <div class="iw has-suf">
+          <input type="number" id="bHeight" placeholder="175" min="1">
+          <span class="suf" id="bHUnit">cm</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="bmi_age">Age</label>
+        <input type="number" id="bAge" placeholder="30" min="2" max="120">
+      </div>
+      <div class="fg">
+        <label data-i18n="bmi_gender">Gender</label>
+        <div class="radio-row">
+          <div class="rb"><input type="radio" name="bGender" id="bg1" value="male" checked><label for="bg1" data-i18n="bmi_male">Male</label></div>
+          <div class="rb"><input type="radio" name="bGender" id="bg2" value="female"><label for="bg2" data-i18n="bmi_female">Female</label></div>
+        </div>
+      </div>
+      <div class="err" id="bErr" data-i18n="err_bmi">⚠ Please enter valid weight and height values.</div>
+      <button class="btn btn-p" onclick="calcBMI()" style="background:var(--purple);color:#fff" data-i18n="bmi_btn">Calculate BMI →</button>
+    </div>
+    <div class="res" id="bRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('bRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="bmi-gauge-wrap">
+        <svg viewBox="0 0 200 112" width="200" height="112" style="overflow:visible">
+          <defs>
+            <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stop-color="#60a5fa" stop-opacity=".7"/>
+              <stop offset="33%"  stop-color="#34d399" stop-opacity=".85"/>
+              <stop offset="60%"  stop-color="#fbbf24" stop-opacity=".85"/>
+              <stop offset="100%" stop-color="#f87171" stop-opacity=".85"/>
+            </linearGradient>
+          </defs>
+          <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--border2)" stroke-width="14" stroke-linecap="round"/>
+          <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#g1)" stroke-width="14" stroke-linecap="round"/>
+          <line id="bNeedle" x1="100" y1="100" x2="100" y2="30" stroke="var(--text)" stroke-width="2.5" stroke-linecap="round" transform="rotate(-88 100 100)" opacity="0.9"/>
+          <circle cx="100" cy="100" r="5" fill="var(--accent)"/>
+          <text x="11"  y="118" font-size="7.5" fill="var(--text3)" font-family="DM Mono,monospace">16</text>
+          <text x="48"  y="28"  font-size="7.5" fill="var(--text3)" font-family="DM Mono,monospace">18.5</text>
+          <text x="90"  y="12"  font-size="7.5" fill="var(--text3)" font-family="DM Mono,monospace">25</text>
+          <text x="136" y="28"  font-size="7.5" fill="var(--text3)" font-family="DM Mono,monospace">30</text>
+          <text x="175" y="118" font-size="7.5" fill="var(--text3)" font-family="DM Mono,monospace">40</text>
+        </svg>
+        <div style="font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;color:var(--purple)" id="bVal">—</div>
+        <span class="bmi-cat-badge" id="bCat"></span>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="bmi_range">Healthy Weight Range</span><span class="rval" id="bRange"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="bmi_status">Weight Status</span><span class="rval" id="bStatus"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ AGE ══ -->
+<section class="sec" id="age">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(248,113,113,.12);color:#f87171">🎂</div>
+    <div>
+      <div class="sec-title" data-i18n="age_title">Age Calculator</div>
+      <div class="sec-desc"  data-i18n="age_desc">Find your exact age in years, months, and days — plus birthday countdown.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="age_dob">Date of Birth</label>
+        <input type="date" id="aDOB">
+      </div>
+      <div class="fg">
+        <label data-i18n="age_target">Calculate Age On</label>
+        <input type="date" id="aTarget">
+      </div>
+      <div class="err" id="aErr" data-i18n="err_age">⚠ Date of birth must be before the target date.</div>
+      <button class="btn btn-p" onclick="calcAge()" style="background:var(--red)" data-i18n="age_btn">Calculate Age →</button>
+    </div>
+    <div class="res" id="aRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('aRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="hero-res">
+        <div class="hero-res-lbl" data-i18n="age_lbl">Age</div>
+        <div class="hero-res-val" id="aYears" style="color:var(--red)">—</div>
+        <div class="hero-res-sub" id="aDetail"></div>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="age_months">Total Months</span><span class="rval" id="aMonths"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="age_days">Total Days</span><span class="rval" id="aDays"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="age_hours">Total Hours</span><span class="rval" id="aHours"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="age_next">Next Birthday In</span><span class="rval g" id="aNext"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="age_dow">Day of Week Born</span><span class="rval" id="aDOW"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ TAX ══ -->
+<section class="sec" id="tax">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(251,146,60,.12);color:#fb923c">🧾</div>
+    <div>
+      <div class="sec-title" data-i18n="tax_title">Tax Calculator</div>
+      <div class="sec-desc"  data-i18n="tax_desc">US federal income tax, effective rate, and take-home pay (2024 brackets).</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="tax_income">Annual Income</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="tInc" data-i18n-ph="ph_amount" placeholder="75,000" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="tax_status">Filing Status</label>
+        <select id="tStatus">
+          <option value="single"  data-i18n="tax_single">Single</option>
+          <option value="married" data-i18n="tax_married">Married Filing Jointly</option>
+          <option value="hoh"     data-i18n="tax_hoh">Head of Household</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label data-i18n="tax_ded">Additional Deductions</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="tDed" data-i18n-ph="ph_zero" placeholder="0" min="0">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="tax_cred">Tax Credits</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="tCred" data-i18n-ph="ph_zero" placeholder="0" min="0">
+        </div>
+      </div>
+      <div class="err" id="tErr" data-i18n="err_income">⚠ Please enter a valid income amount.</div>
+      <button class="btn btn-p" onclick="calcTax()" style="background:var(--orange);color:#000" data-i18n="tax_btn">Calculate Tax →</button>
+    </div>
+    <div class="res" id="tRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="lbl_results">Results</span>
+        <button class="copy-btn" onclick="copyRes('tRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_taxable">Taxable Income</span><span class="rval" id="tTaxable"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_fed">Federal Tax</span><span class="rval r" id="tFed"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_rate">Effective Tax Rate</span><span class="rval" id="tRate"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_home_yr">Take-Home (annual)</span><span class="rval g" id="tHome"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_home_mo">Take-Home (monthly)</span><span class="rval a" id="tMonth"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tax_home_bw">Take-Home (biweekly)</span><span class="rval" id="tBiweek"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ TIP ══ -->
+<section class="sec" id="tip">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(34,211,238,.12);color:#22d3ee">💡</div>
+    <div>
+      <div class="sec-title" data-i18n="tip_title">Tip Calculator</div>
+      <div class="sec-desc"  data-i18n="tip_desc">Split the bill and calculate the tip per person in seconds.</div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="card">
+      <div class="fg">
+        <label data-i18n="tip_bill">Bill Amount</label>
+        <div class="iw has-pre"><span class="pre">$</span>
+          <input type="number" id="tipBill" placeholder="85.00" min="0" step="0.01" oninput="calcTip()">
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="tip_pct">Tip Percentage</label>
+        <div class="tip-presets">
+          <button class="tpre"    onclick="setTip(10,this)">10%</button>
+          <button class="tpre on" onclick="setTip(15,this)">15%</button>
+          <button class="tpre"    onclick="setTip(18,this)">18%</button>
+          <button class="tpre"    onclick="setTip(20,this)">20%</button>
+          <button class="tpre"    onclick="setTip(25,this)">25%</button>
+        </div>
+        <div class="iw has-suf" style="margin-top:8px">
+          <input type="number" id="tipPct" value="15" min="0" max="100" step="0.5" oninput="syncTipPresets();calcTip()">
+          <span class="suf">%</span>
+        </div>
+      </div>
+      <div class="fg">
+        <label data-i18n="tip_people">Number of People</label>
+        <input type="number" id="tipPpl" value="2" min="1" max="100" oninput="calcTip()">
+      </div>
+    </div>
+    <div class="res on" id="tipRes">
+      <div class="res-hd">
+        <span class="res-lbl" data-i18n="tip_split">Per Person</span>
+        <button class="copy-btn" onclick="copyRes('tipRes',this)" data-i18n="btn_copy">📋 Copy</button>
+      </div>
+      <div class="hero-res">
+        <div class="hero-res-lbl" data-i18n="tip_pp_lbl">Total Per Person</div>
+        <div class="hero-res-val" id="tipPP" style="color:var(--cyan)">—</div>
+      </div>
+      <div class="rrow"><span class="rlabel" data-i18n="tip_amt">Tip Amount</span><span class="rval" id="tipAmt"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tip_total">Total (bill + tip)</span><span class="rval a" id="tipTotal"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tip_tpp">Tip per Person</span><span class="rval" id="tipTPP"></span></div>
+      <div class="rrow"><span class="rlabel" data-i18n="tip_bpp">Bill per Person</span><span class="rval" id="tipBPP"></span></div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- ══ PERCENT ══ -->
+<section class="sec" id="percent">
+  <div class="sec-hd">
+    <div class="sec-ico" style="background:rgba(232,121,249,.12);color:#e879f9;font-size:1.1rem;font-weight:800;font-family:'Syne',sans-serif">%</div>
+    <div>
+      <div class="sec-title" data-i18n="pct_title">Percentage Calculator</div>
+      <div class="sec-desc"  data-i18n="pct_desc">Three powerful percentage tools in one place.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="pct-tabs">
+      <button class="ptab on"  onclick="switchPct(0,this)" data-i18n="pct_tab0">X% of Y</button>
+      <button class="ptab"     onclick="switchPct(1,this)" data-i18n="pct_tab1">X is what % of Y</button>
+      <button class="ptab"     onclick="switchPct(2,this)" data-i18n="pct_tab2">% Change</button>
+    </div>
+    <div id="pM0">
+      <div class="grid2">
+        <div>
+          <div class="fg"><label data-i18n="pct_pct">Percentage</label><div class="iw has-suf"><input type="number" id="p0a" placeholder="25" oninput="cp0()"><span class="suf">%</span></div></div>
+          <div class="fg"><label data-i18n="pct_of">Of Value</label><input type="number" id="p0b" placeholder="200" oninput="cp0()"></div>
+        </div>
+        <div class="res on" style="margin-top:0;align-self:center">
+          <div class="hero-res" style="border:none;margin:0;padding:12px 0">
+            <div class="hero-res-lbl" data-i18n="pct_result">Result</div>
+            <div class="hero-res-val" id="p0r" style="color:var(--pink)">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="pM1" style="display:none">
+      <div class="grid2">
+        <div>
+          <div class="fg"><label data-i18n="pct_x">Value (X)</label><input type="number" id="p1a" placeholder="50" oninput="cp1()"></div>
+          <div class="fg"><label data-i18n="pct_y">Total (Y)</label><input type="number" id="p1b" placeholder="200" oninput="cp1()"></div>
+        </div>
+        <div class="res on" style="margin-top:0;align-self:center">
+          <div class="hero-res" style="border:none;margin:0;padding:12px 0">
+            <div class="hero-res-lbl" data-i18n="pct_x_is">X is</div>
+            <div class="hero-res-val" id="p1r" style="color:var(--pink)">—</div>
+            <div class="hero-res-sub" data-i18n="pct_of_y">of Y</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="pM2" style="display:none">
+      <div class="grid2">
+        <div>
+          <div class="fg"><label data-i18n="pct_orig">Original Value</label><input type="number" id="p2a" placeholder="100" oninput="cp2()"></div>
+          <div class="fg"><label data-i18n="pct_new">New Value</label><input type="number" id="p2b" placeholder="135" oninput="cp2()"></div>
+        </div>
+        <div class="res on" style="margin-top:0;align-self:center">
+          <div class="hero-res" style="border:none;margin:0;padding:12px 0">
+            <div class="hero-res-lbl" data-i18n="pct_change">% Change</div>
+            <div class="hero-res-val" id="p2r" style="color:var(--pink)">—</div>
+          </div>
+          <div class="rrow"><span class="rlabel" data-i18n="pct_diff">Difference</span><span class="rval" id="p2d">—</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ad" data-i18n="ad">Advertisement</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-inner">
+    <div class="ft-logo">ProCalc<em> Hub</em></div>
+    <div class="ft-links">
+      <a href="#"        class="ft-link" data-i18n="nav_home">Home</a>
+      <a href="#loan"    class="ft-link" data-i18n="nav_loan_plain">Loan</a>
+      <a href="#profit"  class="ft-link" data-i18n="nav_profit_plain">Profit</a>
+      <a href="#roi"     class="ft-link" data-i18n="nav_roi_plain">ROI</a>
+      <a href="#bmi"     class="ft-link" data-i18n="nav_bmi_plain">BMI</a>
+      <a href="#age"     class="ft-link" data-i18n="nav_age_plain">Age</a>
+      <a href="#tax"     class="ft-link" data-i18n="nav_tax_plain">Tax</a>
+      <a href="#tip"     class="ft-link" data-i18n="nav_tip_plain">Tip</a>
+      <a href="#percent" class="ft-link" data-i18n="nav_pct_plain">Percent</a>
+    </div>
+    <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions.<br>© 2025 Pro Calculator Hub. All rights reserved.</p>
+  </div>
+</footer>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* ══════════════════════════════════════════════════════
+   TRANSLATIONS
+══════════════════════════════════════════════════════ */
+const T = {
+  en: {
+    nav_home:'🏠 Home', nav_loan:'💰 Loan', nav_profit:'📈 Profit', nav_roi:'🎯 ROI',
+    nav_bmi:'⚖️ BMI', nav_age:'🎂 Age', nav_tax:'🧾 Tax', nav_tip:'💡 Tip', nav_pct:'% Percent',
+    nav_loan_plain:'Loan', nav_profit_plain:'Profit', nav_roi_plain:'ROI',
+    nav_bmi_plain:'BMI', nav_age_plain:'Age', nav_tax_plain:'Tax',
+    nav_tip_plain:'Tip', nav_pct_plain:'Percent',
+    hero_badge:'✦ Free · No sign-up · Instant results',
+    hero_h1a:'Free Online', hero_h1b:'Calculator Tools',
+    hero_p:'Fast, accurate, mobile-friendly calculators for your everyday financial and health decisions.',
+    // Loan
+    loan_title:'Loan Calculator', loan_desc:'Calculate monthly mortgage, personal loan, or auto loan payments.',
+    loan_amount:'Loan Amount', loan_rate:'Annual Interest Rate', loan_term:'Loan Term', loan_type:'Loan Type',
+    loan_mortgage:'Mortgage', loan_personal:'Personal', loan_auto:'Auto',
+    loan_btn:'Calculate Payment →', loan_monthly:'Monthly Payment',
+    loan_total:'Total Payment', loan_interest:'Total Interest Paid', loan_ratio:'Interest / Principal',
+    amort_view:'▼ View Amortization Schedule', amort_hide:'▲ Hide Amortization Schedule',
+    amort_mo:'Mo', amort_payment:'Payment', amort_principal:'Principal',
+    amort_interest:'Interest', amort_balance:'Balance',
+    // Profit
+    profit_title:'Profit Calculator', profit_desc:'Find gross profit, net profit, and profit margins in seconds.',
+    profit_rev:'Revenue / Selling Price', profit_cogs:'Cost of Goods Sold',
+    profit_opex:'Operating Expenses', profit_btn:'Calculate Profit →',
+    profit_gross:'Gross Profit', profit_grossm:'Gross Margin',
+    profit_op:'Operating Profit', profit_net:'Net Profit (after tax)', profit_netm:'Net Profit Margin',
+    // ROI
+    roi_title:'ROI Calculator', roi_desc:'Measure the return on any investment, with annualized ROI included.',
+    roi_init:'Initial Investment', roi_final:'Final Value', roi_dur:'Duration', roi_costs:'Additional Costs',
+    roi_btn:'Calculate ROI →', roi_lbl:'ROI',
+    roi_gain:'Net Gain / Loss', roi_annual:'Annualized ROI', roi_break:'Break-even Point',
+    // BMI
+    bmi_title:'BMI Calculator', bmi_desc:'Check your Body Mass Index and healthy weight range — metric or imperial.',
+    bmi_unit:'Unit System', bmi_metric:'Metric (kg/cm)', bmi_imperial:'Imperial (lb/in)',
+    bmi_weight_kg:'Weight (kg)', bmi_weight_lb:'Weight (lbs)',
+    bmi_height_cm:'Height (cm)', bmi_height_in:'Height (inches)',
+    bmi_age:'Age', bmi_gender:'Gender', bmi_male:'Male', bmi_female:'Female',
+    bmi_btn:'Calculate BMI →',
+    bmi_range:'Healthy Weight Range', bmi_status:'Weight Status',
+    bmi_underweight:'Underweight', bmi_normal:'Normal weight', bmi_overweight:'Overweight', bmi_obese:'Obese',
+    bmi_below:'Below healthy range', bmi_within:'✓ Within healthy range',
+    bmi_above:'Above healthy range', bmi_sig:'Significantly above range',
+    // Age
+    age_title:'Age Calculator', age_desc:'Find your exact age in years, months, and days — plus birthday countdown.',
+    age_dob:'Date of Birth', age_target:'Calculate Age On', age_btn:'Calculate Age →', age_lbl:'Age',
+    age_months:'Total Months', age_days:'Total Days', age_hours:'Total Hours',
+    age_next:'Next Birthday In', age_dow:'Day of Week Born',
+    age_years_unit:'years', age_months_unit:'months', age_days_unit:'days',
+    age_tomorrow:'Tomorrow! 🎉', age_days_left:' days',
+    days_long:['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+    // Tax
+    tax_title:'Tax Calculator', tax_desc:'US federal income tax, effective rate, and take-home pay (2024 brackets).',
+    tax_income:'Annual Income', tax_status:'Filing Status',
+    tax_single:'Single', tax_married:'Married Filing Jointly', tax_hoh:'Head of Household',
+    tax_ded:'Additional Deductions', tax_cred:'Tax Credits', tax_btn:'Calculate Tax →',
+    tax_taxable:'Taxable Income', tax_fed:'Federal Tax', tax_rate:'Effective Tax Rate',
+    tax_home_yr:'Take-Home (annual)', tax_home_mo:'Take-Home (monthly)', tax_home_bw:'Take-Home (biweekly)',
+    // Tip
+    tip_title:'Tip Calculator', tip_desc:'Split the bill and calculate the tip per person in seconds.',
+    tip_bill:'Bill Amount', tip_pct:'Tip Percentage', tip_people:'Number of People',
+    tip_split:'Per Person', tip_pp_lbl:'Total Per Person',
+    tip_amt:'Tip Amount', tip_total:'Total (bill + tip)', tip_tpp:'Tip per Person', tip_bpp:'Bill per Person',
+    // Percent
+    pct_title:'Percentage Calculator', pct_desc:'Three powerful percentage tools in one place.',
+    pct_tab0:'X% of Y', pct_tab1:'X is what % of Y', pct_tab2:'% Change',
+    pct_pct:'Percentage', pct_of:'Of Value', pct_result:'Result',
+    pct_x:'Value (X)', pct_y:'Total (Y)', pct_x_is:'X is', pct_of_y:'of Y',
+    pct_orig:'Original Value', pct_new:'New Value', pct_change:'% Change', pct_diff:'Difference',
+    // Shared
+    lbl_results:'Results', btn_copy:'📋 Copy', btn_copied:'✓ Copied!',
+    err_fill:'⚠ Please fill all fields with valid values.',
+    err_rev:'⚠ Please enter valid revenue and cost values.',
+    err_bmi:'⚠ Please enter valid weight and height values.',
+    err_age:'⚠ Date of birth must be before the target date.',
+    err_income:'⚠ Please enter a valid income amount.',
+    lbl_taxrate:'Tax Rate', unit_yrs:'yrs', unit_mo:'mo',
+    ph_amount:'0', ph_zero:'0', ph_years:'30',
+    ad:'Advertisement',
+    footer_copy:'Results are for informational purposes only. Consult a qualified professional for financial or medical decisions.\n© 2025 Pro Calculator Hub. All rights reserved.',
+    yr_unit:' yr', mo_unit:' months', na:'N/A',
+  },
+  ar: {
+    nav_home:'🏠 الرئيسية', nav_loan:'💰 قرض', nav_profit:'📈 ربح', nav_roi:'🎯 العائد',
+    nav_bmi:'⚖️ مؤشر الجسم', nav_age:'🎂 العمر', nav_tax:'🧾 الضريبة', nav_tip:'💡 الإكرامية', nav_pct:'% النسبة',
+    nav_loan_plain:'قرض', nav_profit_plain:'ربح', nav_roi_plain:'العائد',
+    nav_bmi_plain:'مؤشر الجسم', nav_age_plain:'العمر', nav_tax_plain:'الضريبة',
+    nav_tip_plain:'إكرامية', nav_pct_plain:'النسبة',
+    hero_badge:'✦ مجاني · بدون تسجيل · نتائج فورية',
+    hero_h1a:'أدوات', hero_h1b:'حاسبات مجانية',
+    hero_p:'حاسبات سريعة ودقيقة ومتوافقة مع الجوال لقراراتك المالية والصحية اليومية.',
+    // Loan
+    loan_title:'حاسبة القروض', loan_desc:'احسب أقساط القروض العقارية والشخصية وقروض السيارات.',
+    loan_amount:'مبلغ القرض', loan_rate:'معدل الفائدة السنوي', loan_term:'مدة القرض', loan_type:'نوع القرض',
+    loan_mortgage:'عقاري', loan_personal:'شخصي', loan_auto:'سيارة',
+    loan_btn:'← احسب الدفعة', loan_monthly:'الدفعة الشهرية',
+    loan_total:'إجمالي المدفوعات', loan_interest:'إجمالي الفائدة', loan_ratio:'الفائدة / الأصل',
+    amort_view:'▼ عرض جدول الإطفاء', amort_hide:'▲ إخفاء جدول الإطفاء',
+    amort_mo:'شهر', amort_payment:'الدفعة', amort_principal:'الأصل',
+    amort_interest:'الفائدة', amort_balance:'الرصيد',
+    // Profit
+    profit_title:'حاسبة الربح', profit_desc:'احسب الربح الإجمالي والصافي وهامش الربح في ثوانٍ.',
+    profit_rev:'الإيرادات / سعر البيع', profit_cogs:'تكلفة البضاعة المباعة',
+    profit_opex:'المصروفات التشغيلية', profit_btn:'← احسب الربح',
+    profit_gross:'الربح الإجمالي', profit_grossm:'هامش الربح الإجمالي',
+    profit_op:'الربح التشغيلي', profit_net:'صافي الربح (بعد الضريبة)', profit_netm:'هامش الربح الصافي',
+    // ROI
+    roi_title:'حاسبة العائد على الاستثمار', roi_desc:'قِس عائد أي استثمار مع حساب العائد السنوي.',
+    roi_init:'الاستثمار الأولي', roi_final:'القيمة النهائية', roi_dur:'المدة', roi_costs:'تكاليف إضافية',
+    roi_btn:'← احسب العائد', roi_lbl:'عائد الاستثمار',
+    roi_gain:'الربح / الخسارة الصافية', roi_annual:'العائد السنوي', roi_break:'نقطة التعادل',
+    // BMI
+    bmi_title:'حاسبة مؤشر كتلة الجسم', bmi_desc:'تحقق من مؤشر كتلة جسمك ونطاق الوزن الصحي.',
+    bmi_unit:'نظام القياس', bmi_metric:'متري (كجم/سم)', bmi_imperial:'إمبراطوري (رطل/بوصة)',
+    bmi_weight_kg:'الوزن (كجم)', bmi_weight_lb:'الوزن (رطل)',
+    bmi_height_cm:'الطول (سم)', bmi_height_in:'الطول (بوصة)',
+    bmi_age:'العمر', bmi_gender:'الجنس', bmi_male:'ذكر', bmi_female:'أنثى',
+    bmi_btn:'← احسب المؤشر',
+    bmi_range:'نطاق الوزن الصحي', bmi_status:'حالة الوزن',
+    bmi_underweight:'نقص الوزن', bmi_normal:'وزن طبيعي', bmi_overweight:'زيادة الوزن', bmi_obese:'سمنة',
+    bmi_below:'أقل من النطاق الصحي', bmi_within:'✓ ضمن النطاق الصحي',
+    bmi_above:'أعلى من النطاق الصحي', bmi_sig:'أعلى بكثير من النطاق',
+    // Age
+    age_title:'حاسبة العمر', age_desc:'احسب عمرك بالضبط بالسنوات والأشهر والأيام مع العد التنازلي.',
+    age_dob:'تاريخ الميلاد', age_target:'احسب العمر في', age_btn:'← احسب العمر', age_lbl:'العمر',
+    age_months:'إجمالي الأشهر', age_days:'إجمالي الأيام', age_hours:'إجمالي الساعات',
+    age_next:'عيد الميلاد القادم بعد', age_dow:'يوم الميلاد',
+    age_years_unit:'سنة', age_months_unit:'شهر', age_days_unit:'يوم',
+    age_tomorrow:'غداً! 🎉', age_days_left:' يوماً',
+    days_long:['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],
+    // Tax
+    tax_title:'حاسبة الضريبة', tax_desc:'ضريبة الدخل الفيدرالية الأمريكية والراتب الصافي (شرائح 2024).',
+    tax_income:'الدخل السنوي', tax_status:'حالة الإيداع',
+    tax_single:'أعزب', tax_married:'متزوج (إيداع مشترك)', tax_hoh:'رب الأسرة',
+    tax_ded:'خصومات إضافية', tax_cred:'ائتمانات ضريبية', tax_btn:'← احسب الضريبة',
+    tax_taxable:'الدخل الخاضع للضريبة', tax_fed:'الضريبة الفيدرالية', tax_rate:'معدل الضريبة الفعلي',
+    tax_home_yr:'الراتب الصافي (سنوي)', tax_home_mo:'الراتب الصافي (شهري)', tax_home_bw:'الراتب الصافي (أسبوعين)',
+    // Tip
+    tip_title:'حاسبة الإكرامية', tip_desc:'قسّم الفاتورة واحسب الإكرامية لكل شخص في ثوانٍ.',
+    tip_bill:'مبلغ الفاتورة', tip_pct:'نسبة الإكرامية', tip_people:'عدد الأشخاص',
+    tip_split:'لكل شخص', tip_pp_lbl:'الإجمالي للشخص الواحد',
+    tip_amt:'مبلغ الإكرامية', tip_total:'الإجمالي (فاتورة + إكرامية)',
+    tip_tpp:'الإكرامية للشخص', tip_bpp:'الفاتورة للشخص',
+    // Percent
+    pct_title:'حاسبة النسبة المئوية', pct_desc:'ثلاث أدوات نسبة مئوية في مكان واحد.',
+    pct_tab0:'X% من Y', pct_tab1:'X ما نسبتها من Y', pct_tab2:'نسبة التغيير',
+    pct_pct:'النسبة المئوية', pct_of:'من القيمة', pct_result:'النتيجة',
+    pct_x:'القيمة (X)', pct_y:'الإجمالي (Y)', pct_x_is:'X تساوي', pct_of_y:'من Y',
+    pct_orig:'القيمة الأصلية', pct_new:'القيمة الجديدة', pct_change:'نسبة التغيير', pct_diff:'الفرق',
+    // Shared
+    lbl_results:'النتائج', btn_copy:'📋 نسخ', btn_copied:'✓ تم النسخ!',
+    err_fill:'⚠ يرجى تعبئة جميع الحقول بقيم صحيحة.',
+    err_rev:'⚠ يرجى إدخال قيم صحيحة للإيرادات والتكاليف.',
+    err_bmi:'⚠ يرجى إدخال قيم صحيحة للوزن والطول.',
+    err_age:'⚠ يجب أن يكون تاريخ الميلاد قبل التاريخ المستهدف.',
+    err_income:'⚠ يرجى إدخال مبلغ دخل صحيح.',
+    lbl_taxrate:'معدل الضريبة', unit_yrs:'سنة', unit_mo:'شهر',
+    ph_amount:'0', ph_zero:'0', ph_years:'30',
+    ad:'إعلان',
+    footer_copy:'النتائج لأغراض معلوماتية فقط. استشر متخصصاً مؤهلاً في القرارات المالية أو الطبية.\n© 2025 ProCalc Hub. جميع الحقوق محفوظة.',
+    yr_unit:' سنة', mo_unit:' شهراً', na:'غير متاح',
+  }
+};
+
+let lang = 'en';
+
+function applyLang() {
+  const t = T[lang];
+  // data-i18n text content
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  // data-i18n-ph placeholders
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    const key = el.getAttribute('data-i18n-ph');
+    if (t[key] !== undefined) el.placeholder = t[key];
+  });
+  // select options (same mechanism via data-i18n)
+  document.querySelectorAll('option[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+  // BMI unit labels (dynamic — also update current state)
+  switchBmiUnit();
+}
+
+function toggleLang() {
+  lang = lang === 'en' ? 'ar' : 'en';
+  const isAR = lang === 'ar';
+  document.documentElement.setAttribute('dir',  isAR ? 'rtl' : 'ltr');
+  document.documentElement.setAttribute('lang', isAR ? 'ar'  : 'en');
+  document.getElementById('langBtn').textContent = isAR ? 'EN' : 'AR';
+  applyLang();
+}
+
+/* ══ Theme ══════════════════════════════════════════ */
+(function(){
+  const t = localStorage.getItem('pch-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+  document.getElementById('themeBtn').textContent = t==='dark' ? '☀️' : '🌙';
+})();
+function toggleTheme(){
+  const cur = document.documentElement.getAttribute('data-theme');
+  const nxt = cur==='dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', nxt);
+  localStorage.setItem('pch-theme', nxt);
+  document.getElementById('themeBtn').textContent = nxt==='dark' ? '☀️' : '🌙';
+}
+
+/* ══ Scroll ════════════════════════════════════════ */
+window.addEventListener('scroll',()=>{
+  const pct = window.scrollY/(document.body.scrollHeight-window.innerHeight)*100;
+  document.getElementById('prog').style.width = pct+'%';
+  document.getElementById('btt').classList.toggle('on', window.scrollY>400);
+},{passive:true});
+const spySecs=['loan','profit','roi','bmi','age','tax','tip','percent'];
+const navEls=document.querySelectorAll('.nav-link');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navEls.forEach(l=>l.classList.remove('active'));
+      const a=document.querySelector(`.nav-link[href="#${e.target.id}"]`);
+      if(a) a.classList.add('active');
+    }
+  });
+},{threshold:0.4}).observe && spySecs.forEach(id=>{const el=document.getElementById(id);if(el) new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){navEls.forEach(l=>l.classList.remove('active'));const a=document.querySelector(`.nav-link[href="#${e.target.id}"]`);if(a)a.classList.add('active');}});},{threshold:0.3}).observe(el);});
+
+/* ══ Utils ═════════════════════════════════════════ */
+const $s = id => document.getElementById(id);
+const usd = (n,d=2) => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const num = (n,d=2) => new Intl.NumberFormat('en-US',{minimumFractionDigits:d,maximumFractionDigits:d}).format(n);
+const fmtBig = n => new Intl.NumberFormat('en-US').format(n);
+function showRes(id){$s(id).classList.add('on')}
+function showErr(id,show=true){$s(id).classList.toggle('on',show)}
+function t(key){return T[lang][key]||T.en[key]||key}
+
+function copyRes(id,btn){
+  const el=$s(id);
+  let txt='';
+  el.querySelectorAll('.rrow,.hero-res').forEach(r=>{
+    const lbl=r.querySelector('.rlabel,.hero-res-lbl');
+    const val=r.querySelector('.rval,.hero-res-val');
+    if(lbl&&val) txt+=`${lbl.textContent.trim()}: ${val.textContent.trim()}\n`;
+  });
+  navigator.clipboard.writeText(txt.trim()).then(()=>{
+    btn.textContent=t('btn_copied'); btn.classList.add('ok');
+    setTimeout(()=>{btn.textContent=t('btn_copy');btn.classList.remove('ok');},2000);
+  }).catch(()=>{});
+}
+
+/* ══ LOAN ══════════════════════════════════════════ */
+function calcLoan(){
+  const P=parseFloat($s('lAmt').value), annual=parseFloat($s('lRate').value), yrs=parseFloat($s('lTerm').value);
+  const ltype=document.querySelector('input[name="lType"]:checked').value;
+  if(!P||P<=0||isNaN(annual)||annual<0||!yrs||yrs<=0){showErr('lErr');return;}
+  showErr('lErr',false);
+  const r=annual/100/12, n=yrs*12;
+  const monthly=r===0?P/n:P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+  const total=monthly*n, interest=total-P;
+  // translate loan type label
+  const typeLabels={Mortgage:t('loan_mortgage'),Personal:t('loan_personal'),Auto:t('loan_auto')};
+  $s('lMonthly').textContent=usd(monthly);
+  $s('lSubLbl').textContent=(typeLabels[ltype]||ltype)+' · '+yrs+' '+t('unit_yrs');
+  $s('lTotal').textContent=usd(total);
+  $s('lInterest').textContent=usd(interest);
+  $s('lRatio').textContent=num(interest/P*100,1)+'%';
+  buildAmort(P,r,n,monthly);
+  showRes('lRes');
+}
+function buildAmort(P,r,n,monthly){
+  let bal=P;
+  const rows=Math.min(n,360);
+  let html=`<table class="amort-tbl"><thead><tr>
+    <th>${t('amort_mo')}</th><th>${t('amort_payment')}</th>
+    <th>${t('amort_principal')}</th><th>${t('amort_interest')}</th><th>${t('amort_balance')}</th>
+  </tr></thead><tbody>`;
+  for(let i=1;i<=rows;i++){
+    const ip=bal*r, pp=monthly-ip; bal=Math.max(0,bal-pp);
+    html+=`<tr><td>${i}</td><td>${usd(monthly)}</td><td>${usd(pp)}</td><td>${usd(ip)}</td><td>${usd(bal)}</td></tr>`;
+  }
+  html+='</tbody></table>';
+  $s('amortWrap').innerHTML=html;
+}
+function toggleAmort(){
+  const w=$s('amortWrap'), btn=$s('amortBtn'), open=w.classList.toggle('on');
+  btn.textContent=t(open?'amort_hide':'amort_view');
+}
+
+/* ══ PROFIT ════════════════════════════════════════ */
+function calcProfit(){
+  const rev=parseFloat($s('pRev').value), cogs=parseFloat($s('pCOGS').value)||0;
+  const opex=parseFloat($s('pOpex').value)||0, taxR=parseFloat($s('pTax').value)||0;
+  if(!rev||rev<=0||cogs<0){showErr('pErr');return;}
+  showErr('pErr',false);
+  const gross=rev-cogs, gm=(gross/rev*100).toFixed(1);
+  const op=gross-opex, tax=op>0?op*(taxR/100):0, net=op-tax, nm=(net/rev*100).toFixed(1);
+  $s('pGross').textContent=usd(gross); $s('pGrossM').textContent=gm+'%';
+  $s('pOp').textContent=usd(op); $s('pNet').textContent=usd(net); $s('pNetM').textContent=nm+'%';
+  showRes('pRes');
+}
+
+/* ══ ROI ════════════════════════════════════════════ */
+function calcROI(){
+  const init=parseFloat($s('rInit').value), fin=parseFloat($s('rFinal').value);
+  const dur=parseFloat($s('rDur').value), costs=parseFloat($s('rCosts').value)||0;
+  if(!init||init<=0||isNaN(fin)||!dur||dur<=0){showErr('rErr');return;}
+  showErr('rErr',false);
+  const gain=fin-init-costs, roi=gain/(init+costs)*100, yrs=dur/12;
+  const ann=yrs>0?(Math.pow((fin-costs)/init,1/yrs)-1)*100:0;
+  const brk=gain>0?Math.ceil(dur*(init/gain)):null;
+  const ge=$s('rGain'); ge.textContent=usd(gain); ge.className='rval '+(gain>=0?'g':'r');
+  const re=$s('rPct'); re.textContent=num(roi,2)+'%'; re.style.color=roi>=0?'var(--blue)':'var(--red)';
+  $s('rAnnual').textContent=num(ann,2)+'%'+t('yr_unit');
+  $s('rBreak').textContent=brk?fmtBig(brk)+t('mo_unit'):t('na');
+  showRes('rRes');
+}
+
+/* ══ BMI ════════════════════════════════════════════ */
+function switchBmiUnit(){
+  const imp=$s('bu2').checked;
+  $s('bWLbl').textContent=imp?t('bmi_weight_lb'):t('bmi_weight_kg');
+  $s('bHLbl').textContent=imp?t('bmi_height_in'):t('bmi_height_cm');
+  $s('bWUnit').textContent=imp?'lbs':'kg';
+  $s('bHUnit').textContent=imp?'in':'cm';
+  $s('bWeight').placeholder=imp?'154':'70';
+  $s('bHeight').placeholder=imp?'69':'175';
+}
+function calcBMI(){
+  let w=parseFloat($s('bWeight').value), h=parseFloat($s('bHeight').value);
+  if(!w||!h||w<=0||h<=0){showErr('bErr');return;}
+  showErr('bErr',false);
+  const imp=$s('bu2').checked;
+  if(imp){w*=0.453592;h*=2.54;}
+  const hm=h/100, bmi=w/(hm*hm);
+  let catKey,col,bg;
+  if(bmi<18.5){catKey='bmi_underweight';col='#60a5fa';bg='rgba(96,165,250,.15)'}
+  else if(bmi<25){catKey='bmi_normal';col='#34d399';bg='rgba(52,211,153,.15)'}
+  else if(bmi<30){catKey='bmi_overweight';col='#fbbf24';bg='rgba(251,191,36,.15)'}
+  else{catKey='bmi_obese';col='#f87171';bg='rgba(248,113,113,.15)'}
+  const ang=Math.min(88,Math.max(-88,((bmi-16)/24)*176-88));
+  $s('bNeedle').setAttribute('transform',`rotate(${ang} 100 100)`);
+  const minW=18.5*hm*hm, maxW=24.9*hm*hm;
+  const rng=imp?`${(minW/0.453592).toFixed(1)} – ${(maxW/0.453592).toFixed(1)} lbs`:`${minW.toFixed(1)} – ${maxW.toFixed(1)} kg`;
+  const ve=$s('bVal'); ve.textContent=bmi.toFixed(1); ve.style.color=col;
+  const ce=$s('bCat'); ce.textContent=t(catKey); ce.style.cssText=`background:${bg};color:${col}`;
+  $s('bRange').textContent=rng;
+  let stKey;
+  if(bmi<18.5)stKey='bmi_below'; else if(bmi<25)stKey='bmi_within'; else if(bmi<30)stKey='bmi_above'; else stKey='bmi_sig';
+  $s('bStatus').textContent=t(stKey);
+  showRes('bRes');
+}
+
+/* ══ AGE ════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded',()=>{
+  $s('aTarget').value=new Date().toISOString().split('T')[0];
+});
+function calcAge(){
+  const dob=new Date($s('aDOB').value), tgt=new Date($s('aTarget').value);
+  if(!$s('aDOB').value||dob>=tgt){showErr('aErr');return;}
+  showErr('aErr',false);
+  let yrs=tgt.getFullYear()-dob.getFullYear(), mos=tgt.getMonth()-dob.getMonth(), ds=tgt.getDate()-dob.getDate();
+  if(ds<0){mos--;ds+=new Date(tgt.getFullYear(),tgt.getMonth(),0).getDate();}
+  if(mos<0){yrs--;mos+=12;}
+  const totDays=Math.floor((tgt-dob)/86400000), totMos=yrs*12+mos, totHrs=totDays*24;
+  let nb=new Date(tgt.getFullYear(),dob.getMonth(),dob.getDate());
+  if(nb<=tgt)nb.setFullYear(nb.getFullYear()+1);
+  const dLeft=Math.ceil((nb-tgt)/86400000);
+  $s('aYears').textContent=yrs+' '+t('age_years_unit');
+  $s('aDetail').textContent=mos+' '+t('age_months_unit')+', '+ds+' '+t('age_days_unit');
+  $s('aMonths').textContent=fmtBig(totMos);
+  $s('aDays').textContent=fmtBig(totDays);
+  $s('aHours').textContent=fmtBig(totHrs);
+  $s('aNext').textContent=dLeft===1?t('age_tomorrow'):fmtBig(dLeft)+t('age_days_left');
+  $s('aDOW').textContent=t('days_long')[dob.getDay()];
+  showRes('aRes');
+}
+
+/* ══ TAX ════════════════════════════════════════════ */
+const BRACKETS={
+  single: [[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]],
+  married:[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]],
+  hoh:    [[16550,.10],[63100,.12],[100500,.22],[191950,.24],[243700,.32],[609350,.35],[Infinity,.37]]
+};
+const STD={single:14600,married:29200,hoh:21900};
+function calcTax(){
+  const inc=parseFloat($s('tInc').value);
+  if(!inc||inc<=0){showErr('tErr');return;}
+  showErr('tErr',false);
+  const st=$s('tStatus').value, ded=parseFloat($s('tDed').value)||0, cred=parseFloat($s('tCred').value)||0;
+  const taxable=Math.max(0,inc-STD[st]-ded);
+  let tax=0,prev=0;
+  for(const[lim,rate] of BRACKETS[st]){if(taxable<=prev)break;tax+=(Math.min(taxable,lim)-prev)*rate;prev=lim;}
+  tax=Math.max(0,tax-cred);
+  const home=inc-tax;
+  $s('tTaxable').textContent=usd(taxable);
+  $s('tFed').textContent=usd(tax);
+  $s('tRate').textContent=num(tax/inc*100,2)+'%';
+  $s('tHome').textContent=usd(home);
+  $s('tMonth').textContent=usd(home/12);
+  $s('tBiweek').textContent=usd(home/26);
+  showRes('tRes');
+}
+
+/* ══ TIP ════════════════════════════════════════════ */
+function setTip(pct,el){
+  $s('tipPct').value=pct;
+  document.querySelectorAll('.tpre').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on'); calcTip();
+}
+function syncTipPresets(){
+  const v=parseFloat($s('tipPct').value)||0;
+  document.querySelectorAll('.tpre').forEach(b=>b.classList.toggle('on',parseInt(b.textContent)===v));
+}
+function calcTip(){
+  const bill=parseFloat($s('tipBill').value)||0;
+  const pct=parseFloat($s('tipPct').value)||0;
+  const ppl=Math.max(1,parseInt($s('tipPpl').value)||1);
+  const tipAmt=bill*pct/100, total=bill+tipAmt, pp=total/ppl, tpp=tipAmt/ppl, bpp=bill/ppl;
+  $s('tipPP').textContent=bill>0?usd(pp):'—';
+  $s('tipAmt').textContent=usd(tipAmt);
+  $s('tipTotal').textContent=usd(total);
+  $s('tipTPP').textContent=usd(tpp);
+  $s('tipBPP').textContent=usd(bpp);
+}
+window.addEventListener('load',calcTip);
+
+/* ══ PERCENT ════════════════════════════════════════ */
+function switchPct(mode,btn){
+  [0,1,2].forEach(i=>$s('pM'+i).style.display=i===mode?'':'none');
+  document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));
+  btn.classList.add('on');
+}
+function cp0(){const a=parseFloat($s('p0a').value),b=parseFloat($s('p0b').value);$s('p0r').textContent=(!isNaN(a)&&!isNaN(b))?+((a/100*b).toFixed(8))+'':'—';}
+function cp1(){const a=parseFloat($s('p1a').value),b=parseFloat($s('p1b').value);$s('p1r').textContent=(!isNaN(a)&&!isNaN(b)&&b!==0)?num(a/b*100,4).replace(/\.?0+$/,'')+'%':'—';}
+function cp2(){
+  const a=parseFloat($s('p2a').value),b=parseFloat($s('p2b').value);
+  if(!isNaN(a)&&!isNaN(b)&&a!==0){
+    const ch=(b-a)/Math.abs(a)*100;
+    const el=$s('p2r'); el.textContent=(ch>=0?'+':'')+num(ch,2)+'%'; el.style.color=ch>=0?'var(--green)':'var(--red)';
+    $s('p2d').textContent=(b-a>=0?'+':'')+num(b-a,4).replace(/\.?0+$/,'');
+  } else {$s('p2r').textContent='—';$s('p2d').textContent='—';}
+}
+</script>
+</body>
+</html>
