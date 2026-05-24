@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profit Calculator | ProCalc Hub</title>
+<meta name="description" content="Free profit margin calculator. Calculate gross profit, net profit, and profit margins for any business instantly.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Profit Calculator | ProCalc Hub">
+<meta property="og:description" content="Free profit margin calculator. Calculate gross profit, net profit, and profit margins for any business instantly.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/profit.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link active" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="profit_title">Profit Calculator</span></div>
+  <h1 class="page-title" data-i18n="profit_title">Profit Calculator</h1>
+  <p class="page-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="profit_rev">Revenue / Selling Price</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="pRev" placeholder="100000" min="0"></div></div>
+   <div class="fg"><label data-i18n="profit_cogs">Cost of Goods Sold</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="pCOGS" placeholder="60000" min="0"></div></div>
+   <div class="fg"><label data-i18n="profit_opex">Operating Expenses</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="pOpex" placeholder="15000" min="0"></div></div>
+   <div class="fg"><label data-i18n="lbl_taxrate">Tax Rate</label><div class="iw has-suf"><input type="number" id="pTax" placeholder="21" min="0" max="100"><span class="suf">%</span></div></div>
+   <div class="err" id="pErr" data-i18n="err_rev">⚠ Please enter valid revenue and cost values.</div>
+   <button class="btn btn-p" onclick="calcProfit()" style="background:var(--green)" data-i18n="profit_btn">Calculate Profit →</button>
+  </div>
+  <div class="res" id="pRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('pRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="rrow"><span class="rlabel" data-i18n="profit_gross">Gross Profit</span><span class="rval g" id="pGross"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="profit_grossm">Gross Margin</span><span class="rval" id="pGrossM"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="profit_op">Operating Profit</span><span class="rval" id="pOp"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="profit_net">Net Profit (after tax)</span><span class="rval a" id="pNet"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="profit_netm">Net Profit Margin</span><span class="rval" id="pNetM"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a><a href="bmi.html" class="rel-card">
+  <div class="rel-ico">⚖️</div>
+  <div class="rel-title" data-i18n="bmi_title">BMI Calculator</div>
+  <div class="rel-desc" data-i18n="bmi_desc">Check your Body Mass Index and healthy weight range.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function calcProfit(){
+ const rev=parseFloat($s('pRev').value),cogs=parseFloat($s('pCOGS').value)||0;
+ const opex=parseFloat($s('pOpex').value)||0,taxR=parseFloat($s('pTax').value)||0;
+ if(!rev||rev<=0||cogs<0){showErr('pErr');return;}showErr('pErr',false);
+ const gross=rev-cogs,gm=(gross/rev*100).toFixed(1);
+ const op=gross-opex,tax=op>0?op*(taxR/100):0,net=op-tax,nm=(net/rev*100).toFixed(1);
+ $s('pGross').textContent=usd(gross);$s('pGrossM').textContent=gm+'%';
+ $s('pOp').textContent=usd(op);$s('pNet').textContent=usd(net);$s('pNetM').textContent=nm+'%';
+ showRes('pRes');
+}
+</script>
+</body></html>

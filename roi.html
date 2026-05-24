@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROI Calculator | ProCalc Hub</title>
+<meta name="description" content="Free ROI calculator. Calculate return on investment, annualized ROI, and break-even point for any investment.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="ROI Calculator | ProCalc Hub">
+<meta property="og:description" content="Free ROI calculator. Calculate return on investment, annualized ROI, and break-even point for any investment.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/roi.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link active" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="roi_title">ROI Calculator</span></div>
+  <h1 class="page-title" data-i18n="roi_title">ROI Calculator</h1>
+  <p class="page-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="roi_init">Initial Investment</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="rInit" placeholder="10000" min="0"></div></div>
+   <div class="fg"><label data-i18n="roi_final">Final Value</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="rFinal" placeholder="15000" min="0"></div></div>
+   <div class="fg"><label data-i18n="roi_dur">Duration</label><div class="iw has-suf"><input type="number" id="rDur" placeholder="24" min="1"><span class="suf" data-i18n="unit_mo">mo</span></div></div>
+   <div class="fg"><label data-i18n="roi_costs">Additional Costs</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="rCosts" placeholder="0" min="0"></div></div>
+   <div class="err" id="rErr" data-i18n="err_fill">⚠ Please fill all fields with valid values.</div>
+   <button class="btn btn-p" onclick="calcROI()" style="background:var(--blue);color:#fff" data-i18n="roi_btn">Calculate ROI →</button>
+  </div>
+  <div class="res" id="rRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('rRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="hero-res"><div class="hero-res-lbl" data-i18n="roi_lbl">ROI</div><div class="hero-res-val" id="rPct" style="color:var(--blue)">—</div></div>
+   <div class="rrow"><span class="rlabel" data-i18n="roi_gain">Net Gain / Loss</span><span class="rval" id="rGain"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="roi_annual">Annualized ROI</span><span class="rval" id="rAnnual"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="roi_break">Break-even Point</span><span class="rval" id="rBreak"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="bmi.html" class="rel-card">
+  <div class="rel-ico">⚖️</div>
+  <div class="rel-title" data-i18n="bmi_title">BMI Calculator</div>
+  <div class="rel-desc" data-i18n="bmi_desc">Check your Body Mass Index and healthy weight range.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function calcROI(){
+ const init=parseFloat($s('rInit').value),fin=parseFloat($s('rFinal').value);
+ const dur=parseFloat($s('rDur').value),costs=parseFloat($s('rCosts').value)||0;
+ if(!init||init<=0||isNaN(fin)||!dur||dur<=0){showErr('rErr');return;}showErr('rErr',false);
+ const gain=fin-init-costs,roi=gain/(init+costs)*100,yrs=dur/12;
+ const ann=yrs>0?(Math.pow((fin-costs)/init,1/yrs)-1)*100:0;
+ const brk=gain>0?Math.ceil(dur*(init/gain)):null;
+ const ge=$s('rGain');ge.textContent=usd(gain);ge.className='rval '+(gain>=0?'g':'r');
+ const re=$s('rPct');re.textContent=num(roi,2)+'%';re.style.color=roi>=0?'var(--blue)':'var(--red)';
+ $s('rAnnual').textContent=num(ann,2)+'%'+t('yr_unit');
+ $s('rBreak').textContent=brk?fmtBig(brk)+t('mo_unit'):t('na');
+ showRes('rRes');
+}
+</script>
+</body></html>

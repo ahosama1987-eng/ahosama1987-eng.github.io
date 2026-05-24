@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Percentage Calculator | ProCalc Hub</title>
+<meta name="description" content="Free percentage calculator. Calculate X% of Y, find what percentage X is of Y, and calculate percentage change.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Percentage Calculator | ProCalc Hub">
+<meta property="og:description" content="Free percentage calculator. Calculate X% of Y, find what percentage X is of Y, and calculate percentage change.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/percent.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link active" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="pct_title">Percentage Calculator</span></div>
+  <h1 class="page-title" data-i18n="pct_title">Percentage Calculator</h1>
+  <p class="page-desc" data-i18n="pct_desc">Three powerful percentage tools in one place.</p>
+ </div>
+ <div class="card">
+  <div class="pct-tabs">
+   <button class="ptab on" onclick="switchPct(0,this)" data-i18n="pct_tab0">X% of Y</button>
+   <button class="ptab"    onclick="switchPct(1,this)" data-i18n="pct_tab1">X is what % of Y</button>
+   <button class="ptab"    onclick="switchPct(2,this)" data-i18n="pct_tab2">% Change</button>
+  </div>
+  <div id="pM0">
+   <div class="grid2">
+    <div><div class="fg"><label data-i18n="pct_pct">Percentage</label><div class="iw has-suf"><input type="number" id="p0a" placeholder="25" oninput="cp0()"><span class="suf">%</span></div></div><div class="fg"><label data-i18n="pct_of">Of Value</label><input type="number" id="p0b" placeholder="200" oninput="cp0()"></div></div>
+    <div class="res on" style="margin-top:0;align-self:center"><div class="hero-res" style="border:none;margin:0;padding:12px 0"><div class="hero-res-lbl" data-i18n="pct_result">Result</div><div class="hero-res-val" id="p0r" style="color:var(--pink)">—</div></div></div>
+   </div>
+  </div>
+  <div id="pM1" style="display:none">
+   <div class="grid2">
+    <div><div class="fg"><label data-i18n="pct_x">Value (X)</label><input type="number" id="p1a" placeholder="50" oninput="cp1()"></div><div class="fg"><label data-i18n="pct_y">Total (Y)</label><input type="number" id="p1b" placeholder="200" oninput="cp1()"></div></div>
+    <div class="res on" style="margin-top:0;align-self:center"><div class="hero-res" style="border:none;margin:0;padding:12px 0"><div class="hero-res-lbl" data-i18n="pct_x_is">X is</div><div class="hero-res-val" id="p1r" style="color:var(--pink)">—</div><div class="hero-res-sub" data-i18n="pct_of_y">of Y</div></div></div>
+   </div>
+  </div>
+  <div id="pM2" style="display:none">
+   <div class="grid2">
+    <div><div class="fg"><label data-i18n="pct_orig">Original Value</label><input type="number" id="p2a" placeholder="100" oninput="cp2()"></div><div class="fg"><label data-i18n="pct_new">New Value</label><input type="number" id="p2b" placeholder="135" oninput="cp2()"></div></div>
+    <div class="res on" style="margin-top:0;align-self:center"><div class="hero-res" style="border:none;margin:0;padding:12px 0"><div class="hero-res-lbl" data-i18n="pct_change">% Change</div><div class="hero-res-val" id="p2r" style="color:var(--pink)">—</div></div><div class="rrow"><span class="rlabel" data-i18n="pct_diff">Difference</span><span class="rval" id="p2d">—</span></div></div>
+   </div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function switchPct(mode,btn){[0,1,2].forEach(i=>$s('pM'+i).style.display=i===mode?'':'none');document.querySelectorAll('.ptab').forEach(t=>t.classList.remove('on'));btn.classList.add('on');}
+function cp0(){const a=parseFloat($s('p0a').value),b=parseFloat($s('p0b').value);$s('p0r').textContent=(!isNaN(a)&&!isNaN(b))?+(a/100*b).toFixed(8)+'':'—';}
+function cp1(){const a=parseFloat($s('p1a').value),b=parseFloat($s('p1b').value);$s('p1r').textContent=(!isNaN(a)&&!isNaN(b)&&b!==0)?num(a/b*100,4).replace(/\.?0+$/,'')+'%':'—';}
+function cp2(){const a=parseFloat($s('p2a').value),b=parseFloat($s('p2b').value);if(!isNaN(a)&&!isNaN(b)&&a!==0){const ch=(b-a)/Math.abs(a)*100;const el=$s('p2r');el.textContent=(ch>=0?'+':'')+num(ch,2)+'%';el.style.color=ch>=0?'var(--green)':'var(--red)';$s('p2d').textContent=(b-a>=0?'+':'')+num(b-a,4).replace(/\.?0+$/,'');}else{$s('p2r').textContent='—';$s('p2d').textContent='—';}}
+</script>
+</body></html>

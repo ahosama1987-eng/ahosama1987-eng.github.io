@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Loan Calculator | ProCalc Hub</title>
+<meta name="description" content="Free loan payment calculator. Calculate monthly mortgage, personal loan, or auto loan payments with full amortization schedule.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Loan Calculator | ProCalc Hub">
+<meta property="og:description" content="Free loan payment calculator. Calculate monthly mortgage, personal loan, or auto loan payments with full amortization schedule.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/loan.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link active" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="loan_title">Loan Calculator</span></div>
+  <h1 class="page-title" data-i18n="loan_title">Loan Calculator</h1>
+  <p class="page-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="loan_amount">Loan Amount</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="lAmt" placeholder="250000" min="0"></div></div>
+   <div class="fg"><label data-i18n="loan_rate">Annual Interest Rate</label><div class="iw has-suf"><input type="number" id="lRate" placeholder="6.5" min="0" max="100" step="0.01"><span class="suf">%</span></div></div>
+   <div class="fg"><label data-i18n="loan_term">Loan Term</label><div class="iw has-suf"><input type="number" id="lTerm" placeholder="30" min="1" max="50"><span class="suf" data-i18n="unit_yrs">yrs</span></div></div>
+   <div class="fg"><label data-i18n="loan_type">Loan Type</label>
+    <div class="radio-row">
+     <div class="rb"><input type="radio" name="lType" id="lt1" value="Mortgage" checked><label for="lt1" data-i18n="loan_mortgage">Mortgage</label></div>
+     <div class="rb"><input type="radio" name="lType" id="lt2" value="Personal"><label for="lt2" data-i18n="loan_personal">Personal</label></div>
+     <div class="rb"><input type="radio" name="lType" id="lt3" value="Auto"><label for="lt3" data-i18n="loan_auto">Auto</label></div>
+    </div>
+   </div>
+   <div class="err" id="lErr" data-i18n="err_fill">⚠ Please fill all fields with valid values.</div>
+   <button class="btn btn-p" onclick="calcLoan()" data-i18n="loan_btn">Calculate Payment →</button>
+  </div>
+  <div class="res" id="lRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('lRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="hero-res"><div class="hero-res-lbl" data-i18n="loan_monthly">Monthly Payment</div><div class="hero-res-val" id="lMonthly">—</div><div class="hero-res-sub" id="lSubLbl"></div></div>
+   <div class="rrow"><span class="rlabel" data-i18n="loan_total">Total Payment</span><span class="rval" id="lTotal"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="loan_interest">Total Interest Paid</span><span class="rval r" id="lInterest"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="loan_ratio">Interest / Principal</span><span class="rval" id="lRatio"></span></div>
+   <button class="amort-btn" id="amortBtn" onclick="toggleAmort()" data-i18n="amort_view">▼ View Amortization Schedule</button>
+   <div class="amort-wrap" id="amortWrap"></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a><a href="bmi.html" class="rel-card">
+  <div class="rel-ico">⚖️</div>
+  <div class="rel-title" data-i18n="bmi_title">BMI Calculator</div>
+  <div class="rel-desc" data-i18n="bmi_desc">Check your Body Mass Index and healthy weight range.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function calcLoan(){
+ const P=parseFloat($s('lAmt').value),annual=parseFloat($s('lRate').value),yrs=parseFloat($s('lTerm').value);
+ const ltype=document.querySelector('input[name="lType"]:checked').value;
+ if(!P||P<=0||isNaN(annual)||annual<0||!yrs||yrs<=0){showErr('lErr');return;}
+ showErr('lErr',false);
+ const r=annual/100/12,n=yrs*12;
+ const monthly=r===0?P/n:P*(r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+ const total=monthly*n,interest=total-P;
+ const typeMap={Mortgage:t('loan_mortgage'),Personal:t('loan_personal'),Auto:t('loan_auto')};
+ $s('lMonthly').textContent=usd(monthly);
+ $s('lSubLbl').textContent=(typeMap[ltype]||ltype)+' · '+yrs+' '+t('unit_yrs');
+ $s('lTotal').textContent=usd(total);$s('lInterest').textContent=usd(interest);$s('lRatio').textContent=num(interest/P*100,1)+'%';
+ buildAmort(P,r,n,monthly);showRes('lRes');
+}
+function buildAmort(P,r,n,monthly){
+ let bal=P,html=`<table class="amort-tbl"><thead><tr><th>${t('amort_mo')}</th><th>${t('amort_payment')}</th><th>${t('amort_principal')}</th><th>${t('amort_interest')}</th><th>${t('amort_balance')}</th></tr></thead><tbody>`;
+ for(let i=1;i<=Math.min(n,360);i++){const ip=bal*r,pp=monthly-ip;bal=Math.max(0,bal-pp);html+=`<tr><td>${i}</td><td>${usd(monthly)}</td><td>${usd(pp)}</td><td>${usd(ip)}</td><td>${usd(bal)}</td></tr>`;}
+ $s('amortWrap').innerHTML=html+'</tbody></table>';
+}
+function toggleAmort(){const w=$s('amortWrap'),btn=$s('amortBtn'),open=w.classList.toggle('on');btn.textContent=t(open?'amort_hide':'amort_view');}
+</script>
+</body></html>

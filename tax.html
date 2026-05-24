@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tax Calculator | ProCalc Hub</title>
+<meta name="description" content="Free US income tax calculator 2024. Calculate federal tax, effective rate, and take-home pay for any filing status.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Tax Calculator | ProCalc Hub">
+<meta property="og:description" content="Free US income tax calculator 2024. Calculate federal tax, effective rate, and take-home pay for any filing status.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/tax.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link active" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="tax_title">Tax Calculator</span></div>
+  <h1 class="page-title" data-i18n="tax_title">Tax Calculator</h1>
+  <p class="page-desc" data-i18n="tax_desc">US federal income tax and take-home pay (2024 brackets).</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="tax_income">Annual Income</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="tInc" placeholder="75000" min="0"></div></div>
+   <div class="fg"><label data-i18n="tax_status">Filing Status</label>
+    <select id="tStatus">
+     <option value="single"  data-i18n="tax_single">Single</option>
+     <option value="married" data-i18n="tax_married">Married Filing Jointly</option>
+     <option value="hoh"     data-i18n="tax_hoh">Head of Household</option>
+    </select>
+   </div>
+   <div class="fg"><label data-i18n="tax_ded">Additional Deductions</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="tDed" placeholder="0" min="0"></div></div>
+   <div class="fg"><label data-i18n="tax_cred">Tax Credits</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="tCred" placeholder="0" min="0"></div></div>
+   <div class="err" id="tErr" data-i18n="err_income">⚠ Please enter a valid income amount.</div>
+   <button class="btn btn-p" onclick="calcTax()" style="background:var(--orange);color:#000" data-i18n="tax_btn">Calculate Tax →</button>
+  </div>
+  <div class="res" id="tRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('tRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_taxable">Taxable Income</span><span class="rval" id="tTaxable"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_fed">Federal Tax</span><span class="rval r" id="tFed"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_rate">Effective Tax Rate</span><span class="rval" id="tRate"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_home_yr">Take-Home (annual)</span><span class="rval g" id="tHome"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_home_mo">Take-Home (monthly)</span><span class="rval a" id="tMonth"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tax_home_bw">Take-Home (biweekly)</span><span class="rval" id="tBiweek"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+const BRACKETS={single:[[11600,.10],[47150,.12],[100525,.22],[191950,.24],[243725,.32],[609350,.35],[Infinity,.37]],married:[[23200,.10],[94300,.12],[201050,.22],[383900,.24],[487450,.32],[731200,.35],[Infinity,.37]],hoh:[[16550,.10],[63100,.12],[100500,.22],[191950,.24],[243700,.32],[609350,.35],[Infinity,.37]]};
+const STD={single:14600,married:29200,hoh:21900};
+function calcTax(){
+ const inc=parseFloat($s('tInc').value);if(!inc||inc<=0){showErr('tErr');return;}showErr('tErr',false);
+ const st=$s('tStatus').value,ded=parseFloat($s('tDed').value)||0,cred=parseFloat($s('tCred').value)||0;
+ const taxable=Math.max(0,inc-STD[st]-ded);let tax=0,prev=0;
+ for(const[lim,rate] of BRACKETS[st]){if(taxable<=prev)break;tax+=(Math.min(taxable,lim)-prev)*rate;prev=lim;}
+ tax=Math.max(0,tax-cred);const home=inc-tax;
+ $s('tTaxable').textContent=usd(taxable);$s('tFed').textContent=usd(tax);$s('tRate').textContent=num(tax/inc*100,2)+'%';
+ $s('tHome').textContent=usd(home);$s('tMonth').textContent=usd(home/12);$s('tBiweek').textContent=usd(home/26);showRes('tRes');
+}
+</script>
+</body></html>

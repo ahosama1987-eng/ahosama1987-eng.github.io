@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Age Calculator | ProCalc Hub</title>
+<meta name="description" content="Free age calculator. Find your exact age in years, months, days and hours. Includes next birthday countdown.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Age Calculator | ProCalc Hub">
+<meta property="og:description" content="Free age calculator. Find your exact age in years, months, days and hours. Includes next birthday countdown.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/age.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link active" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="age_title">Age Calculator</span></div>
+  <h1 class="page-title" data-i18n="age_title">Age Calculator</h1>
+  <p class="page-desc" data-i18n="age_desc">Find your exact age in years, months, and days.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="age_dob">Date of Birth</label><input type="date" id="aDOB"></div>
+   <div class="fg"><label data-i18n="age_target">Calculate Age On</label><input type="date" id="aTarget"></div>
+   <div class="err" id="aErr" data-i18n="err_age">⚠ Date of birth must be before the target date.</div>
+   <button class="btn btn-p" onclick="calcAge()" style="background:var(--red)" data-i18n="age_btn">Calculate Age →</button>
+  </div>
+  <div class="res" id="aRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('aRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="hero-res"><div class="hero-res-lbl" data-i18n="age_lbl">Age</div><div class="hero-res-val" id="aYears" style="color:var(--red)">—</div><div class="hero-res-sub" id="aDetail"></div></div>
+   <div class="rrow"><span class="rlabel" data-i18n="age_months">Total Months</span><span class="rval" id="aMonths"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="age_days">Total Days</span><span class="rval" id="aDays"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="age_hours">Total Hours</span><span class="rval" id="aHours"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="age_next">Next Birthday In</span><span class="rval g" id="aNext"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="age_dow">Day of Week Born</span><span class="rval" id="aDOW"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+window.addEventListener('DOMContentLoaded',()=>{ $s('aTarget').value=new Date().toISOString().split('T')[0]; });
+function calcAge(){
+ const dob=new Date($s('aDOB').value),tgt=new Date($s('aTarget').value);
+ if(!$s('aDOB').value||dob>=tgt){showErr('aErr');return;}showErr('aErr',false);
+ let yrs=tgt.getFullYear()-dob.getFullYear(),mos=tgt.getMonth()-dob.getMonth(),ds=tgt.getDate()-dob.getDate();
+ if(ds<0){mos--;ds+=new Date(tgt.getFullYear(),tgt.getMonth(),0).getDate();}
+ if(mos<0){yrs--;mos+=12;}
+ const totDays=Math.floor((tgt-dob)/86400000),totMos=yrs*12+mos,totHrs=totDays*24;
+ let nb=new Date(tgt.getFullYear(),dob.getMonth(),dob.getDate());
+ if(nb<=tgt)nb.setFullYear(nb.getFullYear()+1);
+ const dLeft=Math.ceil((nb-tgt)/86400000);
+ $s('aYears').textContent=yrs+' '+t('age_years_unit');
+ $s('aDetail').textContent=mos+' '+t('age_months_unit')+', '+ds+' '+t('age_days_unit');
+ $s('aMonths').textContent=fmtBig(totMos);$s('aDays').textContent=fmtBig(totDays);$s('aHours').textContent=fmtBig(totHrs);
+ $s('aNext').textContent=dLeft===1?t('age_tomorrow'):fmtBig(dLeft)+t('age_days_left');
+ $s('aDOW').textContent=t('days_long')[dob.getDay()];showRes('aRes');
+}
+</script>
+</body></html>

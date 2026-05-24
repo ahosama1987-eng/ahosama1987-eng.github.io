@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator | ProCalc Hub</title>
+<meta name="description" content="Free tip calculator and bill splitter. Calculate tip amount and split the total bill per person instantly.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="Tip Calculator | ProCalc Hub">
+<meta property="og:description" content="Free tip calculator and bill splitter. Calculate tip amount and split the total bill per person instantly.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/tip.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link active" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="tip_title">Tip Calculator</span></div>
+  <h1 class="page-title" data-i18n="tip_title">Tip Calculator</h1>
+  <p class="page-desc" data-i18n="tip_desc">Split the bill and calculate tip per person instantly.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="tip_bill">Bill Amount</label><div class="iw has-pre"><span class="pre">$</span><input type="number" id="tipBill" placeholder="85.00" min="0" step="0.01" oninput="calcTip()"></div></div>
+   <div class="fg"><label data-i18n="tip_pct">Tip Percentage</label>
+    <div class="tip-presets">
+     <button class="tpre"    onclick="setTip(10,this)">10%</button>
+     <button class="tpre on" onclick="setTip(15,this)">15%</button>
+     <button class="tpre"    onclick="setTip(18,this)">18%</button>
+     <button class="tpre"    onclick="setTip(20,this)">20%</button>
+     <button class="tpre"    onclick="setTip(25,this)">25%</button>
+    </div>
+    <div class="iw has-suf" style="margin-top:8px"><input type="number" id="tipPct" value="15" min="0" max="100" step="0.5" oninput="syncTipPresets();calcTip()"><span class="suf">%</span></div>
+   </div>
+   <div class="fg"><label data-i18n="tip_people">Number of People</label><input type="number" id="tipPpl" value="2" min="1" max="100" oninput="calcTip()"></div>
+  </div>
+  <div class="res on" id="tipRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('tipRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="hero-res"><div class="hero-res-lbl" data-i18n="tip_pp_lbl">Total Per Person</div><div class="hero-res-val" id="tipPP" style="color:var(--cyan)">—</div></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tip_amt">Tip Amount</span><span class="rval" id="tipAmt"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tip_total">Total (bill + tip)</span><span class="rval a" id="tipTotal"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tip_tpp">Tip per Person</span><span class="rval" id="tipTPP"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="tip_bpp">Bill per Person</span><span class="rval" id="tipBPP"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function setTip(pct,el){$s('tipPct').value=pct;document.querySelectorAll('.tpre').forEach(b=>b.classList.remove('on'));el.classList.add('on');calcTip();}
+function syncTipPresets(){const v=parseFloat($s('tipPct').value)||0;document.querySelectorAll('.tpre').forEach(b=>b.classList.toggle('on',parseInt(b.textContent)===v));}
+function calcTip(){
+ const bill=parseFloat($s('tipBill').value)||0,pct=parseFloat($s('tipPct').value)||0,ppl=Math.max(1,parseInt($s('tipPpl').value)||1);
+ const tipAmt=bill*pct/100,total=bill+tipAmt,pp=total/ppl,tpp=tipAmt/ppl,bpp=bill/ppl;
+ $s('tipPP').textContent=bill>0?usd(pp):'—';$s('tipAmt').textContent=usd(tipAmt);
+ $s('tipTotal').textContent=usd(total);$s('tipTPP').textContent=usd(tpp);$s('tipBPP').textContent=usd(bpp);
+}
+window.addEventListener('load',calcTip);
+</script>
+</body></html>

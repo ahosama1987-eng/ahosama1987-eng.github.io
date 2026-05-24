@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BMI Calculator | ProCalc Hub</title>
+<meta name="description" content="Free BMI calculator. Check your Body Mass Index, healthy weight range, and weight status in metric or imperial units.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="BMI Calculator | ProCalc Hub">
+<meta property="og:description" content="Free BMI calculator. Check your Body Mass Index, healthy weight range, and weight status in metric or imperial units.">
+<link rel="canonical" href="https://ahosama1987-eng.github.io/bmi.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body><div id="prog"></div>
+<nav id="nav">
+ <div class="nav-in">
+  <a href="index.html" class="logo">ProCalc<em> Hub</em></a>
+  <div class="nav-links"><a href="#" class="nav-link" data-i18n="nav_home">🏠 Home</a>
+<a href="loan.html" class="nav-link" data-i18n="nav_loan">💰 Loan</a>
+<a href="profit.html" class="nav-link" data-i18n="nav_profit">📈 Profit</a>
+<a href="roi.html" class="nav-link" data-i18n="nav_roi">🎯 ROI</a>
+<a href="bmi.html" class="nav-link active" data-i18n="nav_bmi">⚖️ BMI</a>
+<a href="age.html" class="nav-link" data-i18n="nav_age">🎂 Age</a>
+<a href="tax.html" class="nav-link" data-i18n="nav_tax">🧾 Tax</a>
+<a href="tip.html" class="nav-link" data-i18n="nav_tip">💡 Tip</a>
+<a href="percent.html" class="nav-link" data-i18n="nav_pct">% Percent</a>
+</div>
+  <div class="nav-act">
+   <button class="ico-btn" id="langBtn" onclick="toggleLang()">AR</button>
+   <button class="ico-btn" id="themeBtn" onclick="toggleTheme()">☀️</button>
+  </div>
+ </div>
+</nav>
+<div class="wrap">
+ <div class="ad-zone ad-leaderboard" data-i18n="ad">Advertisement</div>
+ <div class="page-hd">
+  <div class="breadcrumb"><a href="index.html" data-i18n="nav_home_plain">Home</a><span>›</span><span data-i18n="bmi_title">BMI Calculator</span></div>
+  <h1 class="page-title" data-i18n="bmi_title">BMI Calculator</h1>
+  <p class="page-desc" data-i18n="bmi_desc">Check your Body Mass Index and healthy weight range.</p>
+ </div>
+ <div class="grid2">
+  <div class="card">
+   <div class="fg"><label data-i18n="bmi_unit">Unit System</label>
+    <div class="radio-row">
+     <div class="rb"><input type="radio" name="bUnit" id="bu1" value="metric" checked onchange="switchBmiUnit()"><label for="bu1" data-i18n="bmi_metric">Metric (kg/cm)</label></div>
+     <div class="rb"><input type="radio" name="bUnit" id="bu2" value="imperial" onchange="switchBmiUnit()"><label for="bu2" data-i18n="bmi_imperial">Imperial (lb/in)</label></div>
+    </div>
+   </div>
+   <div class="fg"><label id="bWLbl" data-i18n="bmi_weight_kg">Weight (kg)</label><div class="iw has-suf"><input type="number" id="bWeight" placeholder="70" min="1"><span class="suf" id="bWUnit">kg</span></div></div>
+   <div class="fg"><label id="bHLbl" data-i18n="bmi_height_cm">Height (cm)</label><div class="iw has-suf"><input type="number" id="bHeight" placeholder="175" min="1"><span class="suf" id="bHUnit">cm</span></div></div>
+   <div class="fg"><label data-i18n="bmi_age">Age</label><input type="number" id="bAge" placeholder="30" min="2" max="120"></div>
+   <div class="fg"><label data-i18n="bmi_gender">Gender</label>
+    <div class="radio-row">
+     <div class="rb"><input type="radio" name="bGender" id="bg1" value="male" checked><label for="bg1" data-i18n="bmi_male">Male</label></div>
+     <div class="rb"><input type="radio" name="bGender" id="bg2" value="female"><label for="bg2" data-i18n="bmi_female">Female</label></div>
+    </div>
+   </div>
+   <div class="err" id="bErr" data-i18n="err_bmi">⚠ Please enter valid weight and height values.</div>
+   <button class="btn btn-p" onclick="calcBMI()" style="background:var(--purple);color:#fff" data-i18n="bmi_btn">Calculate BMI →</button>
+  </div>
+  <div class="res" id="bRes">
+   <div class="res-hd"><span class="res-lbl" data-i18n="lbl_results">Results</span><button class="copy-btn" onclick="copyRes('bRes',this)" data-i18n="btn_copy">📋 Copy</button></div>
+   <div class="bmi-gauge-wrap">
+    <svg viewBox="0 0 200 112" width="200" height="112" style="overflow:visible">
+     <defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60a5fa" stop-opacity=".7"/><stop offset="33%" stop-color="#34d399" stop-opacity=".85"/><stop offset="60%" stop-color="#fbbf24" stop-opacity=".85"/><stop offset="100%" stop-color="#f87171" stop-opacity=".85"/></linearGradient></defs>
+     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="var(--border2)" stroke-width="14" stroke-linecap="round"/>
+     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#g1)" stroke-width="14" stroke-linecap="round"/>
+     <line id="bNeedle" x1="100" y1="100" x2="100" y2="30" stroke="var(--text)" stroke-width="2.5" stroke-linecap="round" transform="rotate(-88 100 100)"/>
+     <circle cx="100" cy="100" r="5" fill="var(--accent)"/>
+     <text x="11" y="118" font-size="7.5" fill="var(--text3)" font-family="monospace">16</text>
+     <text x="48" y="28" font-size="7.5" fill="var(--text3)" font-family="monospace">18.5</text>
+     <text x="90" y="12" font-size="7.5" fill="var(--text3)" font-family="monospace">25</text>
+     <text x="136" y="28" font-size="7.5" fill="var(--text3)" font-family="monospace">30</text>
+     <text x="175" y="118" font-size="7.5" fill="var(--text3)" font-family="monospace">40</text>
+    </svg>
+    <div style="font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;color:var(--purple)" id="bVal">—</div>
+    <span class="bmi-cat-badge" id="bCat"></span>
+   </div>
+   <div class="rrow"><span class="rlabel" data-i18n="bmi_range">Healthy Weight Range</span><span class="rval" id="bRange"></span></div>
+   <div class="rrow"><span class="rlabel" data-i18n="bmi_status">Weight Status</span><span class="rval" id="bStatus"></span></div>
+  </div>
+ </div>
+ <div class="ad-zone ad-rectangle" data-i18n="ad">Advertisement</div>
+</div>
+<div class="related wrap">
+ <div class="related-title" data-i18n="related">Try These Next</div>
+ <div class="related-grid"><a href="loan.html" class="rel-card">
+  <div class="rel-ico">💰</div>
+  <div class="rel-title" data-i18n="loan_title">Loan Calculator</div>
+  <div class="rel-desc" data-i18n="loan_desc">Calculate monthly payments for mortgage, personal, or auto loans.</div>
+ </a><a href="profit.html" class="rel-card">
+  <div class="rel-ico">📈</div>
+  <div class="rel-title" data-i18n="profit_title">Profit Calculator</div>
+  <div class="rel-desc" data-i18n="profit_desc">Find gross profit, net profit, and margins in seconds.</div>
+ </a><a href="roi.html" class="rel-card">
+  <div class="rel-ico">🎯</div>
+  <div class="rel-title" data-i18n="roi_title">ROI Calculator</div>
+  <div class="rel-desc" data-i18n="roi_desc">Measure the return on any investment with annualized ROI.</div>
+ </a></div>
+</div><footer>
+ <div class="ft-inner">
+  <div class="ft-logo">ProCalc<em> Hub</em></div>
+  <div class="ft-links"><a href="index.html" class="ft-link" data-i18n="nav_home_plain">Home</a><a href="loan.html" class="ft-link" data-i18n="nav_loan_plain">Loan</a><a href="profit.html" class="ft-link" data-i18n="nav_profit_plain">Profit</a><a href="roi.html" class="ft-link" data-i18n="nav_roi_plain">ROI</a><a href="bmi.html" class="ft-link" data-i18n="nav_bmi_plain">BMI</a><a href="age.html" class="ft-link" data-i18n="nav_age_plain">Age</a><a href="tax.html" class="ft-link" data-i18n="nav_tax_plain">Tax</a><a href="tip.html" class="ft-link" data-i18n="nav_tip_plain">Tip</a><a href="percent.html" class="ft-link" data-i18n="nav_pct_plain">Percent</a></div>
+  <p class="ft-copy" data-i18n="footer_copy">Results are for informational purposes only. Consult a qualified professional for financial or medical decisions. © 2025 ProCalc Hub.</p>
+ </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script src="shared.js"></script>
+<script>
+function switchBmiUnit(){
+ const imp=$s('bu2').checked;
+ $s('bWLbl').textContent=imp?t('bmi_weight_lb'):t('bmi_weight_kg');
+ $s('bHLbl').textContent=imp?t('bmi_height_in'):t('bmi_height_cm');
+ $s('bWUnit').textContent=imp?'lbs':'kg';$s('bHUnit').textContent=imp?'in':'cm';
+ $s('bWeight').placeholder=imp?'154':'70';$s('bHeight').placeholder=imp?'69':'175';
+}
+function calcBMI(){
+ let w=parseFloat($s('bWeight').value),h=parseFloat($s('bHeight').value);
+ if(!w||!h||w<=0||h<=0){showErr('bErr');return;}showErr('bErr',false);
+ const imp=$s('bu2').checked;
+ if(imp){w*=0.453592;h*=2.54;}
+ const hm=h/100,bmi=w/(hm*hm);
+ let catKey,col,bg;
+ if(bmi<18.5){catKey='bmi_underweight';col='#60a5fa';bg='rgba(96,165,250,.15)'}
+ else if(bmi<25){catKey='bmi_normal';col='#34d399';bg='rgba(52,211,153,.15)'}
+ else if(bmi<30){catKey='bmi_overweight';col='#fbbf24';bg='rgba(251,191,36,.15)'}
+ else{catKey='bmi_obese';col='#f87171';bg='rgba(248,113,113,.15)'}
+ const ang=Math.min(88,Math.max(-88,((bmi-16)/24)*176-88));
+ $s('bNeedle').setAttribute('transform','rotate('+ang+' 100 100)');
+ const minW=18.5*hm*hm,maxW=24.9*hm*hm;
+ const rng=imp?((minW/0.453592).toFixed(1)+' – '+(maxW/0.453592).toFixed(1)+' lbs'):(minW.toFixed(1)+' – '+maxW.toFixed(1)+' kg');
+ const ve=$s('bVal');ve.textContent=bmi.toFixed(1);ve.style.color=col;
+ const ce=$s('bCat');ce.textContent=t(catKey);ce.style.cssText='background:'+bg+';color:'+col;
+ $s('bRange').textContent=rng;
+ let stKey;if(bmi<18.5)stKey='bmi_below';else if(bmi<25)stKey='bmi_within';else if(bmi<30)stKey='bmi_above';else stKey='bmi_sig';
+ $s('bStatus').textContent=t(stKey);showRes('bRes');
+}
+</script>
+</body></html>
